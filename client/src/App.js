@@ -1,6 +1,6 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import React from 'react'
 
 //new imports -- figure out apollo/client dependency
 import {
@@ -9,6 +9,7 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
