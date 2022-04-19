@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 
 //new imports -- figure out apollo/client dependency
@@ -9,8 +9,15 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
+import Home from "./pages/Home";
+import RuneFarm from "./pages/RuneFarm";
+import BradMerch from "./pages/BradMerch";
+import GavinMerch from "./pages/GavinMerch";
+import JakeMerch from "./pages/JakeMerch";
+import KyleMerch from "./pages/KyleMerch";
+import PeterMerch from "./pages/PeterMerch";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -36,22 +43,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
+        <Routes>
+          {/* home page */}
+          <Route path="/" element={<Home />} />
+          {/* rune farm */}
+          <Route path="/runefarm" element={<RuneFarm />} />
+          {/* merch pages */}
+          <Route path="/bradmerch" element={<BradMerch />} />
+          <Route path="/gavinmerch" element={<GavinMerch />} />
+          <Route path="/jakemerch" element={<JakeMerch />} />
+          <Route path="/kylemerch" element={<KyleMerch />} />
+          <Route path="/petermerch" element={<PeterMerch />} />
+          {/* need a 404 page */}
+        </Routes>
       </Router>
     </ApolloProvider>
   );
