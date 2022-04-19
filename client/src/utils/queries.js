@@ -15,6 +15,7 @@ export const GET_ME = gql`
         description
         effect
         type
+        price
       }
     }
   }
