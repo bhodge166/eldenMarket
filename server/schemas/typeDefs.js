@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     cartCount: Int
     savedCart: [Cart]
+    runes: Int
   }
 
   type Cart {
@@ -16,6 +17,7 @@ const typeDefs = gql`
     description: String
     effect: String
     type: String
+    price: Int
   }
 
   input CartInput {
@@ -41,6 +43,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveCart(cart: CartInput!): User
     removeCart(cartId: ID!): User
+    addRunes(userId: ID!, runes: Int!): User
+    removeRunes(userId: ID!, runes: Int!): User
   }
 `;
 
