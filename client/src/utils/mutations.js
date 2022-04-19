@@ -24,9 +24,22 @@ export const ADD_USER = gql`
   }
 `;
 
-export const UPDATE_USER = gql`
-  mutation updateUser($username: String!, $email: String, $password: String!) {
-    updateUser(username: $username, email: $email, password: $password) {
+export const ADD_RUNES = gql`
+  mutation addRunes($_id: ID!, $runes: Int!) {
+    addRunes(_id: $_id, runes: $runes) {
+      token
+      user {
+        _id
+        username
+        runes
+      }
+    }
+  }
+`;
+
+export const REMOVE_RUNES = gql`
+  mutation removeRunes($_id: ID!, $runes: Int!) {
+    removeRunes(_id: $_id, runes: $runes) {
       token
       user {
         _id
