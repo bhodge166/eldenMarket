@@ -3,7 +3,7 @@ export const getItemIds = () => {
     ? JSON.parse(localStorage.getItem("saved_items"))
     : [];
 
-  return savedBookIds;
+  return savedItemIds;
 };
 
 export const saveItemsIds = (itemIdArr) => {

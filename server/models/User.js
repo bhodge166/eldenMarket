@@ -26,7 +26,7 @@ const userSchema = new Schema(
       default: 0,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    cart: [cartSchema],
+    savedCart: [cartSchema],
   },
   // set this to use virtual below
   {
