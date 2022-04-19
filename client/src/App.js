@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React from 'react'
 
 //new imports -- figure out apollo/client dependency
 import {
