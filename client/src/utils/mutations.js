@@ -58,12 +58,12 @@ export const ADD_TO_CART = gql`
       cartCount
       runes
       savedCart {
-        image: String
-        name: String!
-        id: ID!
-        description: String
-        effect: String
-        type: String
+        image
+        name
+        id
+        description
+        effect
+        type
       }
     }
   }
@@ -72,17 +72,17 @@ export const ADD_TO_CART = gql`
 export const REMOVE_FROM_CART = gql`
   mutation removeCart($cartId: ID!) {
     removeCart(cartId: $cartId) {
-        _id
-        username
-        cartCount
-        runes
-        savedCart {
-          image: String
-          name: String!
-          id: ID!
-          description: String
-          effect: String
-          type: String
+      _id
+      username
+      cartCount
+      runes
+      savedCart {
+        image
+        name
+        id
+        description
+        effect
+        type
       }
     }
   }
