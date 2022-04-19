@@ -17,6 +17,7 @@ import GavinMerch from "./pages/GavinMerch";
 import JakeMerch from "./pages/JakeMerch";
 import KyleMerch from "./pages/KyleMerch";
 import PeterMerch from "./pages/PeterMerch";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // import Navbar from "./components/Navbar";
 
