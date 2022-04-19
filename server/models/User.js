@@ -21,6 +21,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    runes: {
+      type: Number,
+      default: 0,
+    },
     // set savedBooks to be an array of data that adheres to the bookSchema
     cart: [cartSchema],
   },

@@ -22,13 +22,13 @@ const cartSchema = new Schema({
     type: String,
     required: true,
   },
-  
+
   type: {
     type: String,
   },
-  
+
   price: {
-    type: Integer,
+    type: Number,
     required: true,
   },
 });
