@@ -2,7 +2,6 @@ import React from "react";
 
 import "./App.css";
 
-//new imports -- figure out apollo/client dependency
 import {
   ApolloClient,
   ApolloProvider,
@@ -18,6 +17,8 @@ import GavinMerch from "./pages/GavinMerch";
 import JakeMerch from "./pages/JakeMerch";
 import KyleMerch from "./pages/KyleMerch";
 import PeterMerch from "./pages/PeterMerch";
+
+// import Navbar from "./components/Navbar";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,19 +44,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Routes>
-          {/* home page */}
-          <Route path="/" element={<Home />} />
-          {/* rune farm */}
-          <Route path="/runefarm" element={<RuneFarm />} />
-          {/* merch pages */}
-          <Route path="/bradmerch" element={<BradMerch />} />
-          <Route path="/gavinmerch" element={<GavinMerch />} />
-          <Route path="/jakemerch" element={<JakeMerch />} />
-          <Route path="/kylemerch" element={<KyleMerch />} />
-          <Route path="/petermerch" element={<PeterMerch />} />
-          {/* need a 404 page */}
-        </Routes>
+        <>
+          <Routes>
+            {/* home page */}
+            <Route path="/" element={<Home />} />
+            {/* rune farm */}
+            <Route path="/runefarm" element={<RuneFarm />} />
+            {/* merch pages */}
+            <Route path="/bradmerch" element={<BradMerch />} />
+            <Route path="/gavinmerch" element={<GavinMerch />} />
+            <Route path="/jakemerch" element={<JakeMerch />} />
+            <Route path="/kylemerch" element={<KyleMerch />} />
+            <Route path="/petermerch" element={<PeterMerch />} />
+            {/* need a 404 page */}
+          </Routes>
+        </>
       </Router>
     </ApolloProvider>
   );
