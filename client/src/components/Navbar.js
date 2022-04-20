@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import weapon from '../assets/images/swordnshield.png'
-
-import '../css/navbar.css';
-import { Navbar, Nav, NavItem, Glyphicon, Container, Modal, Tab } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import "../css/navbar.css";
+import {
+  Navbar,
+  Nav,
+  NavItem,
+  Glyphicon,
+  Container,
+  Modal,
+  Tab,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import { Routes } from "react-router-dom";
 import armor from '../assets/images/armor.png';
 import spells from '../assets/images/scroll.png';
@@ -16,7 +23,9 @@ import character from '../assets/images/knight.png';
 import Auth from '../utils/auth';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
+import Auth from "../utils/auth";
+import SignUpForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
 const Bar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -70,39 +79,40 @@ const Bar = () => {
           </Container>
         </Navbar>
       </Nav>
-
       <Modal
-        size='lg'
+        animation={false}
+        size="lg"
         show={showModal}
         onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
+        aria-labelledby="signup-modal"
+      >
         {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login'>
+        <Tab.Container defaultActiveKey="login">
           <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
+            <Modal.Title id="signup-modal">
+              <Nav variant="pills">
                 <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
+                  <Nav.Link eventKey="login">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              <Tab.Pane eventKey='login'>
+              <Tab.Pane eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
-              <Tab.Pane eventKey='signup'>
+              <Tab.Pane eventKey="signup">
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
       </Modal>
-    </div >
+    </div>
   );
 };
 

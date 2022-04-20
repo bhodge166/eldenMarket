@@ -5,19 +5,15 @@ const cartSchema = new Schema({
   image: {
     type: String,
   },
-  name: {
+  title: {
     type: String,
-    required: true,
   },
   description: {
     type: String,
-    required: true,
   },
   effect: {
     type: String,
-    required: true,
   },
-  // saved book id from eldenringAPI
   id: {
     type: String,
     required: true,
@@ -29,7 +25,10 @@ const cartSchema = new Schema({
 
   price: {
     type: Number,
-    required: true,
+  },
+
+  drops: {
+    type: Array,
   },
 });
 
