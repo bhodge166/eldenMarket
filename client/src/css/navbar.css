@@ -1,0 +1,31 @@
+.navBG {
+  @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
+  font-family: Garamond;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.jakeMerch {
+  width: 75%;
+  height: 50%;
+}
+
+.text-align {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: rgb(255, 252, 47);
+}
+.center-navbar {
+  text-align: center;
+}
+
+.center-navbar .navbar {
+  display: inline-block;
+}
+
+.center-navbar {
+  width: 100%;
+}
