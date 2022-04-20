@@ -25,14 +25,11 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RUNES = gql`
-  mutation addRunes($_id: ID!, $runes: Int!) {
-    addRunes(_id: $_id, runes: $runes) {
-      token
-      user {
-        _id
-        username
-        runes
-      }
+  mutation addRunes {
+    addRunes {
+      _id
+      username
+      runes
     }
   }
 `;
@@ -59,11 +56,13 @@ export const ADD_TO_CART = gql`
       runes
       savedCart {
         image
-        name
+        title
         id
         description
         effect
         type
+        price
+        drops
       }
     }
   }
