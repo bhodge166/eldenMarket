@@ -12,21 +12,24 @@ const typeDefs = gql`
 
   type Cart {
     image: String
-    name: String!
+    title: String!
     id: ID!
     description: String
     effect: String
     type: String
     price: Int
+    drops: [String]
   }
 
   input CartInput {
     image: String
-    name: String!
+    title: String!
     id: ID!
     description: String
     effect: String
     type: String
+    price: Int
+    drops: [String]
   }
 
   type Auth {
@@ -43,7 +46,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveCart(cart: CartInput!): User
     removeCart(cartId: ID!): User
-    addRunes(_id: ID!, runes: Int!): User
+    addRunes: User
     removeRunes(_id: ID!, runes: Int!): User
   }
 `;

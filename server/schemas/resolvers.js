@@ -16,7 +16,9 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("No adventurer found with that email address");
+        throw new AuthenticationError(
+          "No adventurer found with that email address"
+        );
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -34,12 +36,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveCart: async (parent, args, context) => {
+    saveCart: async (parent, { cart }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedCart: args.input } },
-          { new: true, runValidators: true},
+          { $addToSet: { savedCart: cart } },
+          { new: true, runValidators: true }
         );
         return updatedUser;
       }
@@ -47,31 +49,31 @@ const resolvers = {
     removeCart: async (parent, args, context) => {
       if (context.user) {
         const cartRemove = await User.findOneAndUpdate(
-          {_id:context.user._id},
-          {$pull: {savedCarts: {cartId: args.cartId}}},
-          {new: true}
+          { _id: context.user._id },
+          { $pull: { savedCarts: { cartId: args.cartId } } },
+          { new: true }
         );
         return cartRemove;
       }
     },
-    addRunes: async (parent, {runes}, context) => {
+    addRunes: async (parent, args, context) => {
       if (context.user) {
-        const increment = Math.abs(runes) * + 1000
+        const increment = 1000;
         const newRunes = await User.findOneAndUpdate(
-          {_id:context.user._id},
-          {$inc: {runes: increment}},
-          {new: true},
+          { _id: context.user._id },
+          { $inc: { runes: increment } },
+          { new: true }
         );
         return newRunes;
       }
     },
-    removeRunes: async (parent, {runes, price}, context) => {
+    removeRunes: async (parent, { runes, price }, context) => {
       if (context.user) {
-        const cost = runes - price
+        const cost = runes - price;
         const newRunes = await User.findOneAndUpdate(
-          {_id:context.user._id},
-          {$set: {runes: cost}},
-          {new: true},
+          { _id: context.user._id },
+          { $set: { runes: cost } },
+          { new: true }
         );
         return newRunes;
       }

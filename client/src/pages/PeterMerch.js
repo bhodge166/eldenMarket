@@ -16,9 +16,12 @@ import Auth from "../utils/auth";
 
 const PeterMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
- 
+
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  const [saveItem] = useMutation(ADD_TO_CART);
+  const [saveItem, { error, data }] = useMutation(ADD_TO_CART);
+  if (error) {
+    console.log(JSON.stringify(error.message));
+  }
 
   useEffect(() => {
     return () => saveItemsIds(savedItemIds);
@@ -59,14 +62,16 @@ const PeterMerch = () => {
     }
 
     try {
-       await saveItem({
-        variables: {cart: itemToSave},
-      })
+      const { data } = await saveItem({
+        variables: { cart: { ...itemToSave } },
+      });
       setSavedItemIds([...savedItemIds, itemToSave.id]);
+      console.log(data);
     } catch (err) {
-      console.error(err);
+      console.error(JSON.stringify(err));
     }
   };
+
   apiCall();
   return (
     <>
@@ -98,15 +103,20 @@ const PeterMerch = () => {
                   <p className="small">Drops: {item.drops}</p>
                   <Card.Text>{item.drops}</Card.Text>
                   {Auth.loggedIn() && (
-                  <Button
-                    disabled={savedItemIds?.some((savedItemId) => savedItemId === item.id)}
-                    className='btn-block btn-info'
-                    onClick={() => handleSaveItem(item.id)}>
-                    {savedItemIds?.some((savedItemId) => savedItemId === item.id)
-                      ? 'This creature has already been saved!'
-                      : 'Save this Creature!'}
-                  </Button>
-                )}
+                    <Button
+                      disabled={savedItemIds?.some(
+                        (savedItemId) => savedItemId === item.id
+                      )}
+                      className="btn-block btn-info"
+                      onClick={() => handleSaveItem(item.id)}
+                    >
+                      {savedItemIds?.some(
+                        (savedItemId) => savedItemId === item.id
+                      )
+                        ? "This creature has already been saved!"
+                        : "Save this Creature!"}
+                    </Button>
+                  )}
                 </Card.Body>
               </Card>
             );
