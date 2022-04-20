@@ -1,12 +1,38 @@
+.customtxt {
+  font-size: 1.9rem;
+  align-items: center;
+  justify-content: center;
+}
 .navBG {
   @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
   font-family: Garamond;
 }
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 125px;
+  height: 5%;
 }
 
+.snshome {
+  width: 33%;
+  height: 33%;
+}
+
+.iconhome {
+  width: 100px;
+  height: 100px;
+}
+.sns {
+  width: 125px;
+  height: 5%;
+}
+.lgnimg {
+  width: 125px;
+  height: 100%;
+}
+
+.lgintxt {
+  border: 1px solid currentColor;
+}
 .jakeMerch {
   width: 75%;
   height: 50%;
@@ -28,4 +54,17 @@
 
 .center-navbar {
   width: 100%;
+}
+.navglow {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: currentColor 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.9em rgb(255, 255, 255), 0 0 0.125em currentColor;
+}
+
+:root {
+  --clr-neon: rgb(246, 255, 0);
 }

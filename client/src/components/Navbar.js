@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import weapon from '../assets/images/sword.png'
+import weapon from '../assets/images/swordnshield.png'
 
 import '../css/navbar.css';
 import { Navbar, Nav, NavItem, Glyphicon, Container, Modal, Tab } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 // import { Routes } from "react-router-dom";
-import armor from '../assets/images/armor.png'
-import spells from '../assets/images/scroll.png'
-import items from '../assets/images/potion.png'
-import pets from '../assets/images/dragon.png'
+import armor from '../assets/images/armor.png';
+import spells from '../assets/images/scroll.png';
+import items from '../assets/images/astrology.png';
+import pets from '../assets/images/dragon.png';
 
-import runes from '../assets/images/rune.png'
-
+import runes from '../assets/images/rune.png';
+import character from '../assets/images/knight.png';
 import Auth from '../utils/auth';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
@@ -22,54 +22,55 @@ const Bar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <Nav className="navBG" activeKey={window.location.pathname}>
+      <Nav className="navBG customtxt" activeKey={window.location.pathname}>
 
         <LinkContainer to="/jakemerch">
-          <Nav.Link> <img src={armor} className="icon" alt="armor" /> jakesMerch</Nav.Link>
+          <Nav.Link className=" mb-1 "> <img src={weapon} className="sns" alt="weapon" /> <p className="navglow  ">jakesMerch</p></Nav.Link>
 
         </LinkContainer>
         <LinkContainer to="/kylemerch">
-          <Nav.Link><img src={weapon} className="icon" alt="weapon" /> kyleMerch</Nav.Link>
+          <Nav.Link className=" mb-1 mx-3"><img src={armor} className="icon" alt="armor" /> <p className="navglow  ">kyleMerch</p></Nav.Link>
         </LinkContainer>
         <LinkContainer to="/petermerch">
-          <Nav.Link><img src={spells} className="icon" alt="scrolls" />peterMerch</Nav.Link>
+          <Nav.Link className=" mb-1 mx-3"><img src={pets} className="icon" alt="scrolls" /><p className="navglow  ">peterMerch</p></Nav.Link>
         </LinkContainer>
         <LinkContainer to="/bradmerch">
-          <Nav.Link><img src={pets} className="icon" alt="pets" />bradMerch</Nav.Link>
+          <Nav.Link className=" mb-1 mx-3" ><img src={items} className="icon" alt="pets" /><p className="navglow  ">bradMerch</p></Nav.Link>
         </LinkContainer>
         <LinkContainer to="/gavinmerch">
-          <Nav.Link><img src={items} className="icon" alt="items" />gavinMerch</Nav.Link>
+          <Nav.Link className=" mb-1 mx-3" ><img src={spells} className="icon" alt="items" /><p className="navglow  ">gavinMerch</p></Nav.Link>
         </LinkContainer>
         <LinkContainer to="/runefarm">
-          <Nav.Link><img src={runes} className="icon" alt="runes" />runeFarm</Nav.Link>
+          <Nav.Link className="mb-1 mx-3"><img src={runes} className="icon" alt="runes" /><p className="navglow">runeFarm</p></Nav.Link>
         </LinkContainer>
+        <Navbar bg='black' variant='white' expand='lg' >
+          <Container fluid>
+            <Navbar.Brand as={Link} to='/'>
+
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls='navbar' />
+            <Navbar.Collapse id='navbar'>
+              <Nav className='ml-auto'>
+                <Nav.Link as={Link} to='/'>
+                  <img src={character} className="lgnimg " alt="character login" />
+                </Nav.Link>
+                {/* if user is logged in show saved books and logout */}
+                {Auth.loggedIn() ? (
+                  <>
+                    <Nav.Link as={Link} to='/saved'>
+                      See Your Books
+                    </Nav.Link>
+                    <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  </>
+                ) : (
+                  <Nav.Link className="mx-5 navbar" onClick={() => setShowModal(true)}><p className="navglow">Login/Sign Up</p></Nav.Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </Nav>
-      <Navbar bg='dark' variant='dark' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Google Books Search
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                Search For Books
-              </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Books
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+
       <Modal
         size='lg'
         show={showModal}
