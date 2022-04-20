@@ -14,7 +14,7 @@ export const saveItemsIds = (itemIdArr) => {
   }
 };
 
-export const removeItemId = (itemId) => {
+export const removeItemId = (id) => {
   const savedItemIds = localStorage.getItem("saved_items")
     ? JSON.parse(localStorage.getItem("saved_items"))
     : null;
@@ -24,7 +24,7 @@ export const removeItemId = (itemId) => {
   }
 
   const updatedSavedItemIds = savedItemIds?.filter(
-    (savedItemId) => savedItemId !== itemId
+    (savedItemId) => savedItemId !== id
   );
   localStorage.setItem("saved_items", JSON.stringify(updatedSavedItemIds));
 
