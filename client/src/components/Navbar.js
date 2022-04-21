@@ -67,7 +67,7 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">
-          <Container fluid>
+          <Container fluid className="fixed-top">
             <Navbar.Brand as={Link} to="/"></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" />
             <Navbar.Collapse id="navbar">

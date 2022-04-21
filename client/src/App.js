@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import "./App.css";
 
@@ -19,6 +19,9 @@ import KyleMerch from "./pages/KyleMerch";
 import PeterMerch from "./pages/PeterMerch";
 import Inventory from "./pages/Inventory";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+//kyles container for login codegen
+
 
 // import Navbar from "./components/Navbar";
 
@@ -45,6 +48,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+
       <Router>
         <>
           <Routes>

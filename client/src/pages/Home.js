@@ -17,7 +17,7 @@ import peter from '../assets/images/ER_Class_Vagabond.png';
 import brad from '../assets/images/ER_Class_Astrologer.png';
 import gavin from '../assets/images/witch.png';
 import jake from '../assets/images/Elden-Ring-Crucible-Set.png';
-
+import eldenRing from '../assets/images/eldenring_new.png';
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import armor from '../assets/images/armor.png';
@@ -28,6 +28,7 @@ import weapon from '../assets/images/swordnshield.png';
 import runes from '../assets/images/rune.png';
 import character from '../assets/images/knight.png';
 import banner from '../assets/images/banner.png';
+import kylestore from '../assets/images/midevilhouse.png';
 
 
 const Home = () => {
@@ -38,14 +39,15 @@ const Home = () => {
     return (
 
         <div className="bkg"><div className="App App-custom ">
-
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={eldenRing} className="itnro" alt="intro" />
             <div>
+                <img src={logo} className="App-logo" alt="logo" />
                 <Navbar />
             </div>
         </div>
             <div className="row ">
                 <div className="column ms-5 mx-5" >
+                    <img src={kylestore} className="merchStyle" alt="" />
                     <img src={banner} className="storebanner" alt="banner" />
 
                     <div className="position-absolute mx-5"><p className=" star text-center">Come see Jake the Warrior</p>
@@ -56,6 +58,7 @@ const Home = () => {
 
                 <div className="column ms-5 mx-5" style={{ position: "relative" }}>
                     <img src={banner} className="storebanner" alt="banner" />
+                    <img src={kylestore} className="merchStyle" alt="" />
                     <div className="position-absolute mx-5 my-5"><p className=" star text-center">Come see Kyle the Knight</p>
                         <img src={kyle} className="merchStyle" alt="" /></div>
                     <Container><Card className="star border">Hello.Card<Card.Body className="star border border-danger">Hello.Body<Card.Title className="star border border-success">Hello.Card.Title</Card.Title></Card.Body>
@@ -64,6 +67,7 @@ const Home = () => {
 
                 <div className="column ms-5 mx-5" style={{ position: "relative" }}>
                     <img src={banner} className="storebanner" alt="banner" />
+                    <img src={kylestore} className="merchStyle" alt="" />
                     <div style={{ position: "absolute" }}><p className=" star text-center border ">Come see peters </p>
                         <img src={peter} className="peterStyle" alt="petersMerch" /></div>
                     <Container><Card className="star border">Hello.Card<Card.Body className="star border border-danger">Hello.Body<Card.Title className="star border border-success">Hello.Card.Title</Card.Title></Card.Body>
