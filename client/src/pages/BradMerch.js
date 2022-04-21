@@ -11,7 +11,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
-import { ADD_TO_CART } from "../utils/mutations";
+// import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import Navbar from "../components/Navbar";
 
@@ -19,7 +19,7 @@ const BradMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
 
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  const [saveItem] = useMutation(ADD_TO_CART);
+  // const [saveItem] = useMutation(ADD_TO_CART);
 
   useEffect(() => {
     return () => saveItemsIds(savedItemIds);
@@ -49,25 +49,25 @@ const BradMerch = () => {
     }
   };
 
-  const handleSaveItem = async (id) => {
-    const itemToSave = searchedItems.find((item) => item.id === id);
+  // const handleSaveItem = async (id) => {
+  //   const itemToSave = searchedItems.find((item) => item.id === id);
 
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //   // get token
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
+  //   if (!token) {
+  //     return false;
+  //   }
 
-    try {
-      await saveItem({
-        variables: { cart: itemToSave },
-      });
-      setSavedItemIds([...savedItemIds, itemToSave.id]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //   try {
+  //     await saveItem({
+  //       variables: { cart: itemToSave },
+  //     });
+  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
   apiCall();
   return (
     <>
@@ -99,7 +99,7 @@ const BradMerch = () => {
                   <Card.Title>{item.title}</Card.Title>
                   <p className="small">Drops: {item.drops}</p>
                   <Card.Text>{item.drops}</Card.Text>
-                  {Auth.loggedIn() && (
+                  {/* {Auth.loggedIn() && (
                     <Button
                       disabled={savedItemIds?.some(
                         (savedItemId) => savedItemId === item.id
@@ -113,7 +113,7 @@ const BradMerch = () => {
                         ? "This talismans has been saved!"
                         : "Save this Talisman!"}
                     </Button>
-                  )}
+                  )} */}
                 </Card.Body>
               </Card>
             );
