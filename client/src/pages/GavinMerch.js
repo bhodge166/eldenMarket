@@ -13,6 +13,13 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
+import gavin from '../assets/images/witch.png';
+import gavinBg from '../assets/images/GavinMerch.png';
+import kyle from '../assets/images/knightmerch.png';
+import peter from '../assets/images/ER_Class_Vagabond.png';
+import brad from '../assets/images/ER_Class_Astrologer.png';
+import jake from '../assets/images/Elden-Ring-Crucible-Set.png';
+import '../css/GavinMerch.css';
 
 const GavinMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
@@ -70,22 +77,38 @@ const GavinMerch = () => {
   apiCall();
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
-        <Container>
-          <h1>Sorceries</h1>
-        </Container>
+      <Jumbotron fluid className="text-light">
+        <header>
+          <h1 className="header1">Sorceries</h1>
+          <div className="miniAvs row" style={{marginTop: -70}} >
+                <img src={brad} alt="bradsMerch" height ="90px" width="80px" style={{marginLeft: 40}} />
+                <img src={jake} alt="jakesMerch" height ="100px" width="65px" style={{marginTop: -10, marginLeft: 60}}   />
+                <img src={kyle} alt="kylesMerch" height ="100px" width="70px" style={{marginTop: -10, marginLeft: 60}} />
+                <img src={peter} alt="petersMerch" height ="100px" width="70px" style={{marginTop: -10, marginLeft: 60}}  />
+      
+                
+            </div>
+        </header>
       </Jumbotron>
-
-      <Container>
+    <div>
+      <div style={{position: "relative"}}> 
+        
+        <img src={gavinBg} className="merchantBg bg-image" alt="Merchant Image" />
+            <div className="Witch float-left">
+                <img src={gavin} alt="gavinsMerch" height ="600px" width="300px" style={{position: "absolute", marginTop: 200 ,marginLeft: 200}} />   
+            </div>
+           
+          
+        <Container className="cardContainer" style={{marginTop: -900, marginLeft: 200}}>
         <h2>
           {searchedItems.length
             ? `Viewing ${searchedItems.length} results:`
             : "Something went wrong"}
         </h2>
-        <CardColumns>
+        <CardColumns className="searchCard">
           {searchedItems.map((item) => {
             return (
-              <Card key={item.id} border="dark">
+              <Card  key={item.id} border="dark">
                 {item.image ? (
                   <Card.Img
                     src={item.image}
@@ -96,6 +119,7 @@ const GavinMerch = () => {
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <p className="small">Drops: {item.drops}</p>
+        
                   <Card.Text>{item.drops}</Card.Text>
                   {Auth.loggedIn() && (
                   <Button
@@ -113,6 +137,15 @@ const GavinMerch = () => {
           })}
         </CardColumns>
       </Container>
+
+
+
+
+      </div>
+    </div>
+
+      
+      
     </>
   );
 };
