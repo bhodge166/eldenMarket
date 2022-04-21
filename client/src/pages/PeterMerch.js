@@ -11,7 +11,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
-import { ADD_TO_CART } from "../utils/mutations";
+// import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import Navbar from "../components/Navbar";
 
@@ -19,10 +19,7 @@ const PeterMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
   const [price, setPrice] = useState(0);
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  const [saveItem, { error, data }] = useMutation(ADD_TO_CART);
-  if (error) {
-    console.log(JSON.stringify(error.message));
-  }
+  // const [saveItem, { error, data }] = useMutation(ADD_TO_CART);
   function runePrice(min, max) {
     setPrice(console.log(Math.floor(Math.random() * (max - min) + min)));
   }
@@ -55,26 +52,26 @@ const PeterMerch = () => {
     }
   };
 
-  const handleSaveItem = async (id) => {
-    const itemToSave = searchedItems.find((item) => item.id === id);
+  // const handleSaveItem = async (id) => {
+  //   const itemToSave = searchedItems.find((item) => item.id === id);
 
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //   // get token
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
+  //   if (!token) {
+  //     return false;
+  //   }
 
-    try {
-      const { data } = await saveItem({
-        variables: { cart: { ...itemToSave } },
-      });
-      setSavedItemIds([...savedItemIds, itemToSave.id]);
-      console.log(data);
-    } catch (err) {
-      console.error(JSON.stringify(err));
-    }
-  };
+  //   try {
+  //     const { data } = await saveItem({
+  //       variables: { cart: { ...itemToSave } },
+  //     });
+  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.error(JSON.stringify(err));
+  //   }
+  // };
 
   apiCall();
   return (
@@ -114,7 +111,7 @@ const PeterMerch = () => {
                   >
                     See Price
                   </Button>
-                  {Auth.loggedIn() && (
+                  {/* {Auth.loggedIn() && (
                     <Button
                       disabled={savedItemIds?.some(
                         (savedItemId) => savedItemId === item.id
@@ -128,7 +125,7 @@ const PeterMerch = () => {
                         ? "This creature has already been saved!"
                         : "Save this Creature!"}
                     </Button>
-                  )}
+                  )} */}
                 </Card.Body>
               </Card>
             );
