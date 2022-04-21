@@ -1,0 +1,58 @@
+  body {
+      
+  }
+    /* @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap');
+    font-family: Garamond; */
+  header {
+      background: linear-gradient(rgb(63, 63, 2) , rgb(159, 129, 55) , rgb(79, 35, 35) );
+      height: 200px;
+      margin-top: -70px;
+      margin-bottom: 0px;
+      height: 140px;
+      /* color: ; */
+  }
+
+  .header1 {
+      padding-top: 50px;
+      text-align: center;
+      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
+      
+      font-family: Garamond;
+      font-size: 5rem;
+      background-color: #f3ec78;
+      background-image: linear-gradient(45deg, #f3ec78, #af4261);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+
+  }
+
+.merchantBg {
+   width: 100%;
+   margin-top: -100px;
+}
+  .searchCard {
+      width: 600px;
+      height: 1000px;
+  }
+
+.cardContainer {
+    display: flex;
+    /* margin-top: -1000px;
+    margin-right: 200px; */
+    justify-content: right;
+}
+
+.Witch {
+    margin-top: -80px;
+}
+
+.miniAvs {
+    justify-content: left;
+}
+
+.cardContainer h2 {
+    color: aliceblue;
+}
