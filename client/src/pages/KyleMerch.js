@@ -13,6 +13,16 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
+import kyle from "../assets/images/knightmerch.png";
+import kyleBg from "../assets/images/armorBG.png";
+import armor from '../assets/images/armor.png';
+import spells from '../assets/images/scroll.png';
+import items from '../assets/images/astrology.png';
+import pets from '../assets/images/dragon.png';
+import weapon from '../assets/images/swordnshield.png';
+import runes from '../assets/images/rune.png';
+
+import { LinkContainer } from "react-router-bootstrap";
 
 const KyleMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
@@ -71,12 +81,99 @@ const KyleMerch = () => {
   return (
     <>
       <Jumbotron fluid className="text-light bg-dark">
-        <Container>
-          <h1>Armors</h1>
-        </Container>
+      <header>
+          <h1 className="header1">Armory</h1>
+          <div
+            className="miniAvs row"
+            style={{ marginTop: -70, marginLeft: 60 }}
+          >
+            <div className="kyleAv mx-3">
+              <LinkContainer to="/kylemerch">
+                <img
+                  src={armor}
+                  alt="kylesMerch"
+                  height="90px"
+                  width="70px"
+                  // style={{ marginTop: -10, marginLeft: 100 }}
+                />
+              </LinkContainer>
+            </div>
+            <div className="bradAv mx-3">
+              <LinkContainer to="/bradmerch">
+                <img
+                  src={weapon}
+                  alt="bradsMerch"
+                  height="90px"
+                  width="80px"
+                  // style={{ marginLeft: 40 }}
+                />
+              </LinkContainer>
+            </div>
+            <div className="jakeAv mx-3">
+              <LinkContainer to="/jakemerch">
+                <img
+                  src={items}
+                  alt="jakesMerch"
+                  height="90px"
+                  width="90px"
+                  // style={{ marginTop: -10, marginLeft: 200 }}
+                />
+              </LinkContainer>
+            </div>
+            <div className="peterAv mx-3">
+              <LinkContainer to="/petermerch">
+                <img
+                  src={pets}
+                  alt="petersMerch"
+                  height="90px"
+                  width="85px"
+                  // style={{ marginTop: -10, marginLeft: 200 }}
+                />
+              </LinkContainer>
+            </div>
+            <div className="gavinAv mx-3">
+              <LinkContainer to="/gavinmerch">
+                <img
+                  src={spells}
+                  alt="gavinsMerch"
+                  height="90px"
+                  width="70px"
+                  // style={{ marginTop: -10, marginLeft: 200 }}
+                />
+              </LinkContainer>
+            </div>
+            
+          </div>
+              <div className="runeAv">
+                <LinkContainer to="/runefarm">
+                  <img
+                    src={runes}
+                    alt="runes"
+                    height="80px"
+                    width="80px"
+                    // style={{ marginTop: -10, marginLeft: 200 }}
+                  />
+                </LinkContainer>
+              </div>
+        </header>
       </Jumbotron>
-
-      <Container>
+     
+        <div style={{ position: "relative" }}>
+          <img
+            src={kyleBg}
+            className="merchantBg bg-image"
+            alt="Merchant Image"
+          />
+          <div className="KyleKnight float-left">
+            <img
+              src={kyle}
+              alt="kylesMerch"
+              height="600px"
+              width="450px"
+              style={{ position: "absolute", marginTop: 100, marginLeft: 150 }}
+            />
+          </div>
+        <Container>
         <h2>
           {searchedItems.length
             ? `Viewing ${searchedItems.length} results:`
@@ -113,6 +210,7 @@ const KyleMerch = () => {
           })}
         </CardColumns>
       </Container>
+      </div>
     </>
   );
 };
