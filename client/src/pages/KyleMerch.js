@@ -15,18 +15,19 @@ import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import kyle from "../assets/images/knightmerch.png";
 import kyleBg from "../assets/images/armorBG.png";
-import armor from '../assets/images/armor.png';
-import spells from '../assets/images/scroll.png';
-import items from '../assets/images/astrology.png';
-import pets from '../assets/images/dragon.png';
-import weapon from '../assets/images/swordnshield.png';
-import runes from '../assets/images/rune.png';
+import armor from "../assets/images/armor.png";
+import spells from "../assets/images/scroll.png";
+import items from "../assets/images/astrology.png";
+import pets from "../assets/images/dragon.png";
+import weapon from "../assets/images/swordnshield.png";
+import runes from "../assets/images/rune.png";
+import Navbar from "../components/Navbar";
 
 import { LinkContainer } from "react-router-bootstrap";
 
 const KyleMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
- 
+
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
   const [saveItem] = useMutation(ADD_TO_CART);
 
@@ -69,9 +70,9 @@ const KyleMerch = () => {
     }
 
     try {
-       await saveItem({
-        variables: {cart: itemToSave},
-      })
+      await saveItem({
+        variables: { cart: itemToSave },
+      });
       setSavedItemIds([...savedItemIds, itemToSave.id]);
     } catch (err) {
       console.error(err);
@@ -80,8 +81,9 @@ const KyleMerch = () => {
   apiCall();
   return (
     <>
+      <Navbar />
       <Jumbotron fluid className="text-light bg-dark">
-      <header>
+        <header>
           <h1 className="header1">Armory</h1>
           <div
             className="miniAvs row"
@@ -142,78 +144,81 @@ const KyleMerch = () => {
                 />
               </LinkContainer>
             </div>
-            
           </div>
-              <div className="runeAv">
-                <LinkContainer to="/runefarm">
-                  <img
-                    src={runes}
-                    alt="runes"
-                    height="80px"
-                    width="80px"
-                    // style={{ marginTop: -10, marginLeft: 200 }}
-                  />
-                </LinkContainer>
-              </div>
+          <div className="runeAv">
+            <LinkContainer to="/runefarm">
+              <img
+                src={runes}
+                alt="runes"
+                height="80px"
+                width="80px"
+                // style={{ marginTop: -10, marginLeft: 200 }}
+              />
+            </LinkContainer>
+          </div>
         </header>
       </Jumbotron>
-     
-        <div style={{ position: "relative" }}>
+
+      <div style={{ position: "relative" }}>
+        <img
+          src={kyleBg}
+          className="merchantBg bg-image"
+          alt="Merchant Image"
+        />
+        <div className="KyleKnight float-left">
           <img
-            src={kyleBg}
-            className="merchantBg bg-image"
-            alt="Merchant Image"
+            src={kyle}
+            alt="kylesMerch"
+            height="600px"
+            width="450px"
+            style={{ position: "absolute", marginTop: 100, marginLeft: 150 }}
           />
-          <div className="KyleKnight float-left">
-            <img
-              src={kyle}
-              alt="kylesMerch"
-              height="600px"
-              width="450px"
-              style={{ position: "absolute", marginTop: 100, marginLeft: 150 }}
-            />
-          </div>
+        </div>
         <Container>
-        <h2>
-          {searchedItems.length
-            ? `Viewing ${searchedItems.length} results:`
-            : "Something went wrong"}
-        </h2>
-        <CardColumns>
-          {searchedItems.map((item) => {
-            return (
-              <Card key={item.id} border="dark">
-                {item.image ? (
-                  <Card.Img
-                    src={item.image}
-                    alt={`The cover for ${item.title}`}
-                    variant="top"
-                  />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <p className="small">Drops: {item.drops}</p>
-                  <Card.Text>{item.drops}</Card.Text>
-                  {Auth.loggedIn() && (
-                  <Button
-                    disabled={savedItemIds?.some((savedItemId) => savedItemId === item.id)}
-                    className='btn-block btn-info'
-                    onClick={() => handleSaveItem(item.id)}>
-                    {savedItemIds?.some((savedItemId) => savedItemId === item.id)
-                      ? 'This armor has been saved!'
-                      : 'Save this Armor!'}
-                  </Button>
-                )}
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
+          <h2>
+            {searchedItems.length
+              ? `Viewing ${searchedItems.length} results:`
+              : "Something went wrong"}
+          </h2>
+          <CardColumns>
+            {searchedItems.map((item) => {
+              return (
+                <Card key={item.id} border="dark">
+                  {item.image ? (
+                    <Card.Img
+                      src={item.image}
+                      alt={`The cover for ${item.title}`}
+                      variant="top"
+                    />
+                  ) : null}
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <p className="small">Drops: {item.drops}</p>
+                    <Card.Text>{item.drops}</Card.Text>
+                    {Auth.loggedIn() && (
+                      <Button
+                        disabled={savedItemIds?.some(
+                          (savedItemId) => savedItemId === item.id
+                        )}
+                        className="btn-block btn-info"
+                        onClick={() => handleSaveItem(item.id)}
+                      >
+                        {savedItemIds?.some(
+                          (savedItemId) => savedItemId === item.id
+                        )
+                          ? "This armor has been saved!"
+                          : "Save this Armor!"}
+                      </Button>
+                    )}
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </CardColumns>
+        </Container>
       </div>
     </>
   );
 };
-
 
 export default KyleMerch;
