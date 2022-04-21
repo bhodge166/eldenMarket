@@ -69,15 +69,15 @@ export const ADD_TO_CART = gql`
 `;
 
 export const REMOVE_FROM_CART = gql`
-  mutation removeCart($cartId: ID!) {
-    removeCart(cartId: $cartId) {
+  mutation removeCart($id: ID!) {
+    removeCart(id: $id) {
       _id
       username
       cartCount
       runes
       savedCart {
         image
-        name
+        title
         id
         description
         effect
