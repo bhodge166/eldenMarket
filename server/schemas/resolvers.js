@@ -48,9 +48,10 @@ const resolvers = {
     },
     removeCart: async (parent, args, context) => {
       if (context.user) {
+        console.log(args);
         const cartRemove = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedCarts: { cartId: args.cartId } } },
+          { $pull: { savedCart: { id: args.id} } },
           { new: true }
         );
         return cartRemove;

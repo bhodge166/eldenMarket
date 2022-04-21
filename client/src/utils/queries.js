@@ -10,7 +10,7 @@ export const GET_ME = gql`
       runes
       savedCart {
         image
-        name
+        title
         id
         description
         effect

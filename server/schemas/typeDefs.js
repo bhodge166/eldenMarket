@@ -45,7 +45,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveCart(cart: CartInput!): User
-    removeCart(cartId: ID!): User
+    removeCart(id: ID!): User
     addRunes: User
     removeRunes(_id: ID!, runes: Int!): User
   }
