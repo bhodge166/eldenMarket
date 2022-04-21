@@ -16,11 +16,14 @@ import Auth from "../utils/auth";
 
 const PeterMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
-
+  const [price, setPrice] = useState(0);
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
   const [saveItem, { error, data }] = useMutation(ADD_TO_CART);
   if (error) {
     console.log(JSON.stringify(error.message));
+  }
+  function runePrice(min, max) {
+    setPrice(console.log(Math.floor(Math.random() * (max - min) + min)));
   }
 
   useEffect(() => {
@@ -100,8 +103,15 @@ const PeterMerch = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
-                  <p className="small">Drops: {item.drops}</p>
-                  <Card.Text>{item.drops}</Card.Text>
+                  <Card.Text>{item.description}</Card.Text>
+                  <Card.Text>Drops: {item.drops}</Card.Text>
+                  {price !== 0 ? `Price: ${price}` : null}
+                  <Button
+                    className="btn-block btn-info"
+                    onClick={() => runePrice(1000, 10000)}
+                  >
+                    See Price
+                  </Button>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedItemIds?.some(
