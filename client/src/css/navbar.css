@@ -62,9 +62,9 @@
   border: currentColor 0.125em solid;
   padding: 0.25em 1em;
   border-radius: 0.25em;
-  text-shadow: 0 0 0.9em rgb(255, 255, 255), 0 0 0.125em currentColor;
+  text-shadow: 0 0 .95rem  rgb(255, 0, 55), 0 0 0.125em currentColor;
 }
 
 :root {
-  --clr-neon: rgb(246, 255, 0);
+  --clr-neon: rgb(238, 158, 28);
 }
