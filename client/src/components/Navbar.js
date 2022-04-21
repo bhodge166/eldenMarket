@@ -18,7 +18,7 @@ import spells from "../assets/images/scroll.png";
 import items from "../assets/images/astrology.png";
 import pets from "../assets/images/dragon.png";
 import runes from "../assets/images/rune.png";
-import character from "../assets/images/knight.png";
+import character from "../assets/images/elden-login.png";
 import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -81,10 +81,9 @@ const Bar = () => {
                 {/* if user is logged in show saved books and logout */}
                 {Auth.loggedIn() ? (
                   <>
-                    <Nav.Link as={Link} to="/saved">
-                      See Your Books
+                    <Nav.Link as={Link} to='/saved' className="navbar "><p className="navglow">Saved Items</p>
                     </Nav.Link>
-                    <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                    <Nav.Link onClick={Auth.logout} className="navbar "><p className="navglow">Logout</p></Nav.Link>
                   </>
                 ) : (
                   <Nav.Link
@@ -112,20 +111,20 @@ const Bar = () => {
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
                 <Nav.Item>
-                  <Nav.Link eventKey="login">Login</Nav.Link>
+                  <Nav.Link eventKey='login' >Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                  <Nav.Link eventKey='signup' >Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              <Tab.Pane eventKey="login">
+              <Tab.Pane eventKey='login' >
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
-              <Tab.Pane eventKey="signup">
+              <Tab.Pane eventKey='signup' >
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
