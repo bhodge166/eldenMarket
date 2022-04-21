@@ -13,10 +13,11 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
+import Navbar from "../components/Navbar";
 
 const BradMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
- 
+
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
   const [saveItem] = useMutation(ADD_TO_CART);
 
@@ -59,9 +60,9 @@ const BradMerch = () => {
     }
 
     try {
-       await saveItem({
-        variables: {cart: itemToSave},
-      })
+      await saveItem({
+        variables: { cart: itemToSave },
+      });
       setSavedItemIds([...savedItemIds, itemToSave.id]);
     } catch (err) {
       console.error(err);
@@ -70,6 +71,7 @@ const BradMerch = () => {
   apiCall();
   return (
     <>
+      <Navbar />
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
           <h1>Talismans</h1>
@@ -98,15 +100,20 @@ const BradMerch = () => {
                   <p className="small">Drops: {item.drops}</p>
                   <Card.Text>{item.drops}</Card.Text>
                   {Auth.loggedIn() && (
-                  <Button
-                    disabled={savedItemIds?.some((savedItemId) => savedItemId === item.id)}
-                    className='btn-block btn-info'
-                    onClick={() => handleSaveItem(item.id)}>
-                    {savedItemIds?.some((savedItemId) => savedItemId === item.id)
-                      ? 'This talismans has been saved!'
-                      : 'Save this Talisman!'}
-                  </Button>
-                )}
+                    <Button
+                      disabled={savedItemIds?.some(
+                        (savedItemId) => savedItemId === item.id
+                      )}
+                      className="btn-block btn-info"
+                      onClick={() => handleSaveItem(item.id)}
+                    >
+                      {savedItemIds?.some(
+                        (savedItemId) => savedItemId === item.id
+                      )
+                        ? "This talismans has been saved!"
+                        : "Save this Talisman!"}
+                    </Button>
+                  )}
                 </Card.Body>
               </Card>
             );
@@ -116,6 +123,5 @@ const BradMerch = () => {
     </>
   );
 };
-
 
 export default BradMerch;

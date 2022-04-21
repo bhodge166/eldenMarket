@@ -13,6 +13,7 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
+import Navbar from "../components/Navbar";
 
 const PeterMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
@@ -75,6 +76,7 @@ const PeterMerch = () => {
   apiCall();
   return (
     <>
+      <Navbar />
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
           <h1>Creatures</h1>
