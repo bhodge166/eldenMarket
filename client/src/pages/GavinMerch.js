@@ -9,10 +9,9 @@ import {
   CardColumns,
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-// import { ADD_TO_CART } from "../utils/mutations";
+import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
+import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import gavin from "../assets/images/witch.png";
 import gavinBg from "../assets/images/GavinMerch.png";
@@ -25,14 +24,8 @@ import "../css/GavinMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
 
 const GavinMerch = () => {
-  const [searchedItems, setSearchedItems] = useState([]);
+  const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
-  const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  // const [saveItem] = useMutation(ADD_TO_CART);
-
-  useEffect(() => {
-    return () => saveItemsIds(savedItemIds);
-  });
   const currentCategory = "Sorceries";
 
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
@@ -44,25 +37,24 @@ const GavinMerch = () => {
     );
   }
 
-  // const handleSaveItem = async (id) => {
-  //   const itemToSave = searchedItems.find((item) => item.id === id);
+  const handlePurchaseItem = async (id) => {
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if (!token) {
-  //     return false;
-  //   }
+    if (!token) {
+      return false;
+    }
 
-  //   try {
-  //     await saveItem({
-  //       variables: { cart: itemToSave },
-  //     });
-  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    try {
+      const { data2 } = await purchaseItem({
+        variables: { products: id },
+      });
+      console.log(data2);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
   return (
     <>
       <div className="App App-custom bkg">
@@ -81,11 +73,7 @@ const GavinMerch = () => {
             marginTop: "10px",
           }}
         >
-          {/* <img
-            src={gavinBg}
-            className="merchantBg bg-image"
-            alt="Merchant Image"
-          /> */}
+          
           <div className="Witch float-left">
             <img
               src={gavin}
@@ -101,8 +89,8 @@ const GavinMerch = () => {
             style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
           >
             <h2 className="wood-text">
-              {searchedItems.length
-                ? `Gavin's ${searchedItems.length} most prized sorceries`
+            {filterProducts().length
+                ? `Gavin's ${filterProducts().length} most prized sorceries`
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
@@ -125,21 +113,13 @@ const GavinMerch = () => {
                       </p>
 
                       <Card.Text>{item.drops}</Card.Text>
-                      {/* {Auth.loggedIn() && (
-                        <Button
-                          disabled={savedItemIds?.some(
-                            (savedItemId) => savedItemId === item.id
-                          )}
-                          className="btn-block btn-info"
-                          onClick={() => handleSaveItem(item.id)}
-                        >
-                          {savedItemIds?.some(
-                            (savedItemId) => savedItemId === item.id
-                          )
-                            ? "This sorcerie has been saved!"
-                            : "Save this sorcerie!"}
-                        </Button>
-                      )} */}
+                      {Auth.loggedIn() && (
+                      <Button
+                        className="btn-block btn-info"
+                        onClick={() => handlePurchaseItem(item._id)}
+                      > Purchase
+                      </Button>
+                    )}
                     </Card.Body>
                   </Card>
                 );
