@@ -50,3 +50,15 @@ export const QUERY_PRODUCTS = gql`
     }
   }
 `;
+
+export const QUERY_PRODUCT = gql`
+  query product($_id: ID) {
+    products(_id: $ID) {
+      _id
+      name
+      description
+      image
+      price
+    }
+  }
+`;

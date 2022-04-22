@@ -47,18 +47,13 @@ export const REMOVE_RUNES = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
+export const ADD_TO_CART = gql`
+  mutation addOrder($products: ID!) {
     addOrder(products: $products) {
       purchaseDate
       products {
         _id
         name
-        description
-        price
-        category {
-          name
-        }
       }
     }
   }
