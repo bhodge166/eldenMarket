@@ -20,17 +20,12 @@
   font-size: 3rem;
   font-weight: bold;
 
-  background-image: linear-gradient(
-    to left,
-    yellow,
-    orange,
-    red
-  );
+  background-image: linear-gradient(to left, yellow, orange, red);
   /* PUT THIS CODE BACK IN TO REMOVE BACKGROUND FROM CARDS */
-   -webkit-background-clip: text;
+  -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 }
 .cardstyle {
   text-align: center;
