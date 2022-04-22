@@ -23,7 +23,6 @@ import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
-
 const Bar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -67,11 +66,11 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">
-          <Container fluid className="fixed-top" >
+          <Container fluid className="fixed-top">
             <Navbar.Brand as={Link} to="/"></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" />
             <Navbar.Collapse id="navbar">
-              <Nav className="ml-auto w-25">
+              <Nav className="ml-auto w-25 custom-login">
                 <Nav.Link as={Link} to="/">
                   <img
                     src={character}
@@ -82,16 +81,21 @@ const Bar = () => {
                 {/* if user is logged in show saved books and logout */}
                 {Auth.loggedIn() ? (
                   <>
-                    <Nav.Link as={Link} to='/inventory' className="navbar "><p className="navglow">Inventory</p>
+                    <Nav.Link as={Link} to="/inventory" className="navbar ">
+                      <p className="navglow">Inventory</p>
                     </Nav.Link>
-                    <Nav.Link onClick={Auth.logout} className="navbar "><p className="navglow">Logout</p></Nav.Link>
+                    <Nav.Link onClick={Auth.logout} className="navbar ">
+                      <p className="navglow">Logout</p>
+                    </Nav.Link>
                   </>
                 ) : (
                   <Nav.Link
                     className=" navbar mx-.5"
                     onClick={() => setShowModal(true)}
                   >
-                    <p className="navglow" style={{ fontSize: "24px" }}>Login/Sign Up</p>
+                    <p className="navglow" style={{ fontSize: "24px" }}>
+                      Login/Sign Up
+                    </p>
                   </Nav.Link>
                 )}
               </Nav>
@@ -112,20 +116,20 @@ const Bar = () => {
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
                 <Nav.Item>
-                  <Nav.Link eventKey='login' >Login</Nav.Link>
+                  <Nav.Link eventKey="login">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey='signup' >Sign Up</Nav.Link>
+                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              <Tab.Pane eventKey='login' >
+              <Tab.Pane eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
-              <Tab.Pane eventKey='signup' >
+              <Tab.Pane eventKey="signup">
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
