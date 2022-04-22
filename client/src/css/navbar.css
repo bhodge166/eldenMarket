@@ -1,3 +1,7 @@
+.custom-login {
+  margin-right: -5%;
+}
+
 .customtxt {
   font-size: 1.9rem;
   align-items: center;
@@ -6,6 +10,8 @@
 .navBG {
   @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
   font-family: Garamond;
+  margin-top: -10%;
+  margin-bottom: -40%;
 }
 .icon {
   width: 125px;
@@ -67,6 +73,7 @@
   padding: 0.25em 1em;
   border-radius: 0.25em;
   text-shadow: 0 0 0.95rem rgb(255, 0, 55), 0 0 0.125em currentColor;
+  background: black;
 }
 
 :root {

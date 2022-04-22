@@ -14,9 +14,10 @@ import { useMutation } from "@apollo/client";
 // import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import kyle from "../assets/images/knightmerch.png";
-
+//navbar stuff
 import Navbar from "../components/Navbar";
-
+import logo from "../logo.svg";
+import eldenRing from "../assets/images/eldenring_new.png";
 import "../css/KyleMerch.css";
 
 import { LinkContainer } from "react-router-bootstrap";
@@ -76,54 +77,65 @@ const KyleMerch = () => {
   // };
   apiCall();
   return (
-    <div style={{ width: "100%" }}>
-      <Navbar />
-
-      <div
-        className="mainContentKyle"
-        style={{ position: "relative", width: "100%", height: "1000px" }}
-      >
-        {/* <img
+    <>
+      <div className="App App-custom ">
+        <img src={eldenRing} className="intro" alt="intro" />
+        <div>
+          <img src={logo} className="App-logo" alt="logo" />
+          <Navbar />
+        </div>
+      </div>
+      <div style={{ width: "100%" }}>
+        <div
+          className="mainContentKyle"
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "1000px",
+            marginTop: "10px",
+          }}
+        >
+          {/* <img
           src={gavinBg}
           className="merchantBg bg-image"
           alt="Merchant Image"
         /> */}
-        <div className="KyleKnight float-left">
-          <img
-            src={kyle}
-            alt="gavinsMerch"
-            height="600px"
-            width="400px"
-            style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
-          />
-        </div>
+          <div className="KyleKnight float-left">
+            <img
+              src={kyle}
+              alt="gavinsMerch"
+              height="600px"
+              width="400px"
+              style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
+            />
+          </div>
 
-        <Container
-          className="cardContainer"
-          style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
-        >
-          <h2 className="wood-text">
-            {searchedItems.length
-              ? `Kyle's ${searchedItems.length} most prized pieces of armor`
-              : "Something went wrong"}
-          </h2>
-          <div className="searchCard">
-            {searchedItems.map((item) => {
-              return (
-                <Card className="resultCard" key={item.id} border="dark">
-                  {item.image ? (
-                    <Card.Img
-                      src={item.image}
-                      className="cardImg"
-                      alt={`The cover for ${item.title}`}
-                      variant="top"
-                    />
-                  ) : null}
-                  <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <p className="small">Drops: {item.drops}</p>
-                    <Card.Text>{item.drops}</Card.Text>
-                    {/* {Auth.loggedIn() && (
+          <Container
+            className="cardContainer"
+            style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
+          >
+            <h2 className="wood-text">
+              {searchedItems.length
+                ? `Kyle's ${searchedItems.length} most prized pieces of armor`
+                : "Something went wrong"}
+            </h2>
+            <div className="searchCard">
+              {searchedItems.map((item) => {
+                return (
+                  <Card className="resultCard" key={item.id} border="dark">
+                    {item.image ? (
+                      <Card.Img
+                        src={item.image}
+                        className="cardImg"
+                        alt={`The cover for ${item.title}`}
+                        variant="top"
+                      />
+                    ) : null}
+                    <Card.Body>
+                      <Card.Title>{item.title}</Card.Title>
+                      <p className="small">Drops: {item.drops}</p>
+                      <Card.Text>{item.drops}</Card.Text>
+                      {/* {Auth.loggedIn() && (
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -138,14 +150,15 @@ const KyleMerch = () => {
                           : "Save this armor!"}
                       </Button>
                     )} */}
-                  </Card.Body>
-                </Card>
-              );
-            })}
-          </div>
-        </Container>
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+            </div>
+          </Container>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
