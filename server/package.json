@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "seed": "node config/seeds.js"
   },
   "name": "server",
   "version": "1.0.0",
