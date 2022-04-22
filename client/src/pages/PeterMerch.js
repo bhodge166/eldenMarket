@@ -9,7 +9,6 @@ import {
   CardColumns,
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
 import { ADD_TO_CART } from "../utils/mutations";
@@ -22,9 +21,6 @@ import eldenRing from "../assets/images/eldenring_new.png";
 import "../css/PeterMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
 const PeterMerch = () => {
-  // const [searchedItems, setSearchedItems] = useState([]);
-  // const [price, setPrice] = useState(0);
-  // const [savedItemIds, setSavedItemIds] = useState(getItemIds());
   const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
   const currentCategory = "Creatures";
@@ -76,11 +72,7 @@ const PeterMerch = () => {
             marginTop: "10px",
           }}
         >
-          {/* <img
-          src={gavinBg}
-          className="merchantBg bg-image"
-          alt="Merchant Image"
-        /> */}
+         
           <div className="PeterPet float-left">
             <img
               src={peter}

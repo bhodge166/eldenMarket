@@ -11,7 +11,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
-// import { ADD_TO_CART } from "../utils/mutations";
+import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import kyle from "../assets/images/knightmerch.png";
 //navbar stuff
@@ -19,19 +19,15 @@ import Navbar from "../components/Navbar";
 import logo from "../logo.svg";
 import eldenRing from "../assets/images/eldenring_new.png";
 import "../css/KyleMerch.css";
-import { QUERY_ALL_PRODUCTS } from "../utils/queries";
+import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
 
 import { LinkContainer } from "react-router-bootstrap";
 
 const KyleMerch = () => {
-  const [searchedItems, setSearchedItems] = useState([]);
-
-  const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  // const [saveItem] = useMutation(ADD_TO_CART);
-
-  useEffect(() => {
-    return () => saveItemsIds(savedItemIds);
-  });
+  // const [searchedItems, setSearchedItems] = useState([]);
+  // const [price, setPrice] = useState(0);
+  // const [savedItemIds, setSavedItemIds] = useState(getItemIds());
+  const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
   const currentCategory = "Armors";
 
@@ -43,25 +39,25 @@ const KyleMerch = () => {
       (product) => product.category.name === currentCategory
     );
   }
-  // const handleSaveItem = async (id) => {
-  //   const itemToSave = searchedItems.find((item) => item.id === id);
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const handlePurchaseItem = async (id) => {
 
-  //   if (!token) {
-  //     return false;
-  //   }
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   try {
-  //     await saveItem({
-  //       variables: { cart: itemToSave },
-  //     });
-  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data2 } = await purchaseItem({
+        variables: { products: id },
+      });
+      console.log(data2);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
   return (
     <>
       <div className="App App-custom bkg">
@@ -81,11 +77,7 @@ const KyleMerch = () => {
             marginTop: "10px",
           }}
         >
-          {/* <img
-          src={gavinBg}
-          className="merchantBg bg-image"
-          alt="Merchant Image"
-        /> */}
+          
           <div className="KyleKnight float-left">
             <img
               src={kyle}
@@ -101,8 +93,8 @@ const KyleMerch = () => {
             style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
           >
             <h2 className="wood-text">
-              {searchedItems.length
-                ? `Kyle's ${searchedItems.length} most prized pieces of armor`
+            {filterProducts().length
+                ? `Kyle's ${filterProducts().length} most prized pieces of armor`
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
@@ -125,21 +117,13 @@ const KyleMerch = () => {
                       </p>
 
                       <Card.Text>{item.drops}</Card.Text>
-                      {/* {Auth.loggedIn() && (
+                      {Auth.loggedIn() && (
                       <Button
-                        disabled={savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )}
                         className="btn-block btn-info"
-                        onClick={() => handleSaveItem(item.id)}
-                      >
-                        {savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )
-                          ? "This armor has been saved"
-                          : "Save this armor!"}
+                        onClick={() => handlePurchaseItem(item._id)}
+                      > Purchase
                       </Button>
-                    )} */}
+                    )}
                     </Card.Body>
                   </Card>
                 );
