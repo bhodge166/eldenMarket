@@ -109,7 +109,7 @@ const PeterMerch = () => {
             <div className="searchCard">
               {filterProducts().map((item) => {
                 return (
-                  <Card className="resultCard" key={item._id} border="dark">
+                  <Card className="resultCard" key={item._id}>
                     {item.image ? (
                       <Card.Img
                         src={item.image}
@@ -118,10 +118,12 @@ const PeterMerch = () => {
                         variant="top"
                       />
                     ) : null}
-                    <Card.Body>
-                      <Card.Title>{item.name}</Card.Title>
-                      <p className="small">{item.description}</p>
-                      <p className="small">Price: {item.price} Runes</p>
+                    <Card.Body className="cardBody">
+                      <Card.Title className="titleText">{item.name}</Card.Title>
+                      <p className="small descText">{item.description}</p>
+                      <p className="small priceText">
+                        Price: {item.price} Runes
+                      </p>
 
                       <Card.Text>{item.drops}</Card.Text>
                       {/* {Auth.loggedIn() && (
