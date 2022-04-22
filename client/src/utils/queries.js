@@ -7,26 +7,12 @@ export const GET_ME = gql`
       username
       email
       runes
-      orders {
-        purchaseDate
-        products {
-          image
-          title
-          name
-          id
-          description
-          effect
-          type
-          price
-          drops
-        }
-      }
     }
   }
 `;
 
 export const QUERY_CATEGORIES = gql`
-  {
+  query categories {
     categories {
       _id
       name
@@ -35,13 +21,13 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_ALL_PRODUCTS = gql`
-  {
+  query products {
     products {
       _id
       name
       description
       price
-      quantity
+      image
       category {
         name
       }

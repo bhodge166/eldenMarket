@@ -10,7 +10,8 @@ import {
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_ALL_PRODUCTS } from "../utils/queries";
 // import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import gavin from "../assets/images/witch.png";
@@ -32,30 +33,16 @@ const GavinMerch = () => {
   useEffect(() => {
     return () => saveItemsIds(savedItemIds);
   });
+  const currentCategory = "Sorceries";
 
-  const apiCall = async () => {
-    try {
-      const response = await searchEldenRing("sorceries");
+  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  const productData = data?.products || [];
 
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
-
-      const { data } = await response.json();
-
-      const creatureData = data.map((creature) => ({
-        id: creature.id,
-        drops: creature.drops || ["Nothing to drop"],
-        title: creature.name,
-        description: creature.description,
-        image: creature.image,
-      }));
-
-      setSearchedItems(creatureData);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  function filterProducts() {
+    return productData.filter(
+      (product) => product.category.name === currentCategory
+    );
+  }
 
   // const handleSaveItem = async (id) => {
   //   const itemToSave = searchedItems.find((item) => item.id === id);
@@ -76,7 +63,6 @@ const GavinMerch = () => {
   //     console.error(err);
   //   }
   // };
-  apiCall();
   return (
     <>
       <div className="App App-custom bkg">
@@ -121,20 +107,23 @@ const GavinMerch = () => {
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
-              {searchedItems.map((item) => {
+              {filterProducts().map((item) => {
                 return (
-                  <Card className="resultCard" key={item.id} border="dark">
+                  <Card className="resultCard" key={item._id}>
                     {item.image ? (
                       <Card.Img
                         src={item.image}
                         className="cardImg"
-                        alt={`The cover for ${item.title}`}
+                        alt={`The cover for ${item.name}`}
                         variant="top"
                       />
                     ) : null}
-                    <Card.Body>
-                      <Card.Title>{item.title}</Card.Title>
-                      <p className="small">Drops: {item.drops}</p>
+                    <Card.Body className="cardBody">
+                      <Card.Title className="titleText">{item.name}</Card.Title>
+                      <p className="small descText">{item.description}</p>
+                      <p className="small priceText">
+                        Price: {item.price} Runes
+                      </p>
 
                       <Card.Text>{item.drops}</Card.Text>
                       {/* {Auth.loggedIn() && (
