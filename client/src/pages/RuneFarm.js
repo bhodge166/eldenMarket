@@ -7,7 +7,7 @@ import eldenRing from "../assets/images/eldenring_new.png";
 const RuneFarm = () => {
   return (
     <>
-      <div className="App App-custom ">
+      <div className="App App-custom bkg">
         <img src={eldenRing} className="intro" alt="intro" />
         <div>
           <img src={logo} className="App-logo" alt="logo" />
