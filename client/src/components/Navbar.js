@@ -23,8 +23,17 @@ import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
+import {useQuery} from '@apollo/client';
+import { GET_ME } from "../utils/queries";
+
+
+
 const Bar = () => {
   const [showModal, setShowModal] = useState(false);
+  const {loading, data} = useQuery(GET_ME);
+  console.log(data)
+  const runeCount = data?.me || [];
+  console.log(runeCount);
   return (
     <div>
       <Nav className="navBG customtxt" activeKey={window.location.pathname}>
@@ -62,7 +71,7 @@ const Bar = () => {
         <LinkContainer to="/runefarm">
           <Nav.Link className="mb-1 mx-3">
             <img src={runes} className="icon" alt="runes" />
-            <p className="navglow">Runes</p>
+            <p className="navglow">Runes: {runeCount.runes}</p>
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">

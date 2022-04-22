@@ -85,12 +85,12 @@ const resolvers = {
           { _id: context.user._id },
           {$push: { orders: order }},
           );
-        await User.findByIdAndUpdate(
+        const test= await User.findByIdAndUpdate(
           { _id: context.user._id },
           {$inc: {runes: -decrement}},
-          );
+          {new: true});
 
-        return order;
+        return test;
       }
 
       throw new AuthenticationError("Not logged in");
@@ -117,17 +117,17 @@ const resolvers = {
         return newRunes;
       }
     },
-    removeRunes: async (parent, { runes, price }, context) => {
-      if (context.user) {
-        const cost = runes - price;
-        const newRunes = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $set: { runes: cost } },
-          { new: true }
-        );
-        return newRunes;
-      }
-    },
+    // removeRunes: async (parent, { runes, price }, context) => {
+    //   if (context.user) {
+    //     const cost = runes - price;
+    //     const newRunes = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $set: { runes: cost } },
+    //       { new: true }
+    //     );
+    //     return newRunes;
+    //   }
+    // },
   },
 };
 
