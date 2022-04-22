@@ -13,10 +13,10 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import { Routes } from "react-router-dom";
-import armor from "../assets/images/armor.png";
-import spells from "../assets/images/scroll.png";
-import items from "../assets/images/astrology.png";
-import pets from "../assets/images/dragon.png";
+import armor from "../assets/images/armor1.png";
+import spells from "../assets/images/books2.png";
+import items from "../assets/images/talisman.png";
+import pets from "../assets/images/realdragon.png";
 import runes from "../assets/images/rune.png";
 import character from "../assets/images/elden-login.png";
 import Auth from "../utils/auth";
@@ -37,13 +37,13 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/kylemerch">
-          <Nav.Link className=" mb-1 mx-3">
+          <Nav.Link className=" mb-4 mx-3">
             <img src={armor} className="icon" alt="armor" />{" "}
             <p className="navglow  ">kyleMerch</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/petermerch">
-          <Nav.Link className=" mb-1 mx-3">
+          <Nav.Link className="  mx-2">
             <img src={pets} className="icon" alt="scrolls" />
             <p className="navglow  ">peterMerch</p>
           </Nav.Link>
@@ -55,9 +55,9 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/gavinmerch">
-          <Nav.Link className=" mb-1 mx-3">
+          <Nav.Link className=" NavItem mb-1 mx-3">
             <img src={spells} className="icon" alt="items" />
-            <p className="navglow  ">gavinMerch</p>
+            <p className="navglow  ">Spells</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/runefarm">
@@ -67,11 +67,11 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">
-          <Container fluid className="fixed-top">
+          <Container fluid className="fixed-top" >
             <Navbar.Brand as={Link} to="/"></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" />
             <Navbar.Collapse id="navbar">
-              <Nav className="ml-auto">
+              <Nav className="ml-auto w-25">
                 <Nav.Link as={Link} to="/">
                   <img
                     src={character}
@@ -88,10 +88,10 @@ const Bar = () => {
                   </>
                 ) : (
                   <Nav.Link
-                    className="mx-5 navbar"
+                    className=" navbar mx-.5"
                     onClick={() => setShowModal(true)}
                   >
-                    <p className="navglow">Login/Sign Up</p>
+                    <p className="navglow" style={{ fontSize: "24px" }}>Login/Sign Up</p>
                   </Nav.Link>
                 )}
               </Nav>

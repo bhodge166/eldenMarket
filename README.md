@@ -1,17 +1,20 @@
-# eldenMarket
+# eldenMarket <u> https://placeholder.com </u>
 
 <html>
 <body>
 
-<h1 align="center">
+<h1 align="center" style="positiion: relative;">
+<img src="./client/src/assets/images/elden-login.png" style="position:; width: 150px; height: 150px;>
   <br>
-  <a href=""><img src="client\src\assets\images\project3readmeimage.png" alt="eldenRing" width="200"></a>
+  <a href="https://placeholder.com"><img src="client\src\assets\images\project3readmeimage.png" alt="eldenRing" width="200"></a>
+<img src="./client/src/assets/images/talisman.png" style="margin-left: 15px;margin-bottom: 5px; width: 125px; height: 125px;>
+
   <br>
   Elden Brothers
   <br>
 </h1>
 
-<h4 align="center">A Team Project assignment for the Denver University bootcamp coding.</h4>
+<h4 align="center">Elden Ring Market</h4>
 
 <p align="center">
   <a href="https://badge.fury.io/js/electron-markdownify">
