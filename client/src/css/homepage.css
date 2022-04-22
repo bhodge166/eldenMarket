@@ -10,6 +10,18 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+.starC {
+  @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
+  font-family: Garamond;
+  font-size: 2.5rem;
+  background-color: #ee9e1c;
+  background-image: linear-gradient(45deg, #fc8515, #e1cbcb);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
 
 .brd {
   border: 5px solid rgb(238, 158, 28);

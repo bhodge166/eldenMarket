@@ -65,6 +65,9 @@
 .center-navbar {
   width: 100%;
 }
+.cursor {
+  cursor: pointer;
+}
 .navglow {
   cursor: pointer;
   text-decoration: none;
