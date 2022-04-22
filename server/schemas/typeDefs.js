@@ -16,7 +16,7 @@ const typeDefs = gql`
 
   type Product {
     image: String
-    title: String!
+    name: String!
     id: ID!
     description: String
     effect: String
@@ -30,18 +30,6 @@ const typeDefs = gql`
     _id: ID
     purchaseDate: String
     products: [Product]
-  }
-
-  input ProductInput {
-    image: String
-    title: String!
-    id: ID!
-    description: String
-    effect: String
-    type: String
-    price: Int
-    drops: [String]
-    category: Category
   }
 
   type Auth {
