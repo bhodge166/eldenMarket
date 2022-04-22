@@ -11,8 +11,8 @@ import {
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-// import { ADD_TO_CART } from "../utils/mutations";
+import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
+import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import peter from "../assets/images/ER_Class_Vagabond.png";
 //navbar stuff
@@ -22,14 +22,11 @@ import eldenRing from "../assets/images/eldenring_new.png";
 import "../css/PeterMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
 const PeterMerch = () => {
-  const [searchedItems, setSearchedItems] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  // const [saveItem, { error, data }] = useMutation(ADD_TO_CART);
+  // const [searchedItems, setSearchedItems] = useState([]);
+  // const [price, setPrice] = useState(0);
+  // const [savedItemIds, setSavedItemIds] = useState(getItemIds());
+  const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
-  useEffect(() => {
-    return () => saveItemsIds(savedItemIds);
-  });
   const currentCategory = "Creatures";
 
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
@@ -40,28 +37,25 @@ const PeterMerch = () => {
       (product) => product.category.name === currentCategory
     );
   }
-  console.log(filterProducts());
 
-  // const handleSaveItem = async (id) => {
-  //   const itemToSave = searchedItems.find((item) => item.id === id);
+  const handlePurchaseItem = async (id) => {
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if (!token) {
-  //     return false;
-  //   }
+    if (!token) {
+      return false;
+    }
 
-  //   try {
-  //     const { data } = await saveItem({
-  //       variables: { cart: { ...itemToSave } },
-  //     });
-  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.error(JSON.stringify(err));
-  //   }
-  // };
+    try {
+      const { data2 } = await purchaseItem({
+        variables: { products: id },
+      });
+      console.log(data2);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
 
   return (
     <>
@@ -102,8 +96,8 @@ const PeterMerch = () => {
             style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
           >
             <h2 className="wood-text">
-              {searchedItems.length
-                ? `Peter's ${searchedItems.length} most prized creatures:`
+              {filterProducts().length
+                ? `Peter's ${filterProducts().length} most prized creatures:`
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
@@ -126,21 +120,13 @@ const PeterMerch = () => {
                       </p>
 
                       <Card.Text>{item.drops}</Card.Text>
-                      {/* {Auth.loggedIn() && (
+                      {Auth.loggedIn() && (
                       <Button
-                        disabled={savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )}
                         className="btn-block btn-info"
-                        onClick={() => handleSaveItem(item.id)}
-                      >
-                        {savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )
-                          ? "This creature has been saved!"
-                          : "Save this creature!"}
+                        onClick={() => handlePurchaseItem(item._id)}
+                      > Purchase
                       </Button>
-                    )} */}
+                    )}
                     </Card.Body>
                   </Card>
                 );
