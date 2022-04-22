@@ -3,19 +3,44 @@
   font-family: Garamond;
   font-size: 2.5rem;
   background-color: #f3ec78;
-  background-image: linear-gradient(45deg, #fc8515, #da0000);
+  background-image: linear-gradient(45deg, #fc8515, #e1cbcb);
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
+.brd {
+  border: 5px solid rgb(238, 158, 28);
+}
+
+.starA {
+  font-family: Garamond;
+  font-size: 3rem;
+  font-weight: bold;
+
+  background-image: linear-gradient(
+    to left,
+    yellow,
+    orange,
+    red
+  );
+  /* PUT THIS CODE BACK IN TO REMOVE BACKGROUND FROM CARDS */
+   -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; 
+}
 .cardstyle {
   text-align: center;
 }
 
+.gavinMerch {
+  width: 160%;
+}
 .intro {
-  image-size: 200%;
+  width: 100%;
 }
 .peterStyle {
   width: 50%;
@@ -41,7 +66,6 @@
 .bkg {
   background: url(https://static.bandainamcoent.eu/high/elden-ring/elden-ring/00-page-setup/elden-ring-new-header-mobile.jpg)
     no-repeat center center fixed;
-
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

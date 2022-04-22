@@ -26,7 +26,7 @@
   height: 5%;
 }
 .lgnimg {
-  width: 125px;
+  width: 75px;
   height: 100%;
 }
 
@@ -48,6 +48,10 @@
   text-align: center;
 }
 
+.armorOne {
+  background-image: url(https://img.rankedboost.com/wp-content/plugins/elden-ring/assets/armor/All-Knowing%20Armor.png);
+}
+
 .center-navbar .navbar {
   display: inline-block;
 }
@@ -62,7 +66,7 @@
   border: currentColor 0.125em solid;
   padding: 0.25em 1em;
   border-radius: 0.25em;
-  text-shadow: 0 0 .95rem  rgb(255, 0, 55), 0 0 0.125em currentColor;
+  text-shadow: 0 0 0.95rem rgb(255, 0, 55), 0 0 0.125em currentColor;
 }
 
 :root {
