@@ -11,6 +11,7 @@ header {
     height: 140px;
     /* color: ; */
 }
+
 .wood-text {
   background: url(../assets/images/wood-text.jpeg) no-repeat center center;
   background-size: cover;
@@ -20,12 +21,13 @@ header {
   -moz-background-clip:text;
   background-clip:text; 
   font-family:Catamaran,sans-serif;
-  font-size:4.2em;
+  font-size:1em;
   padding:0;
   margin:0;
   text-align:center;
-  -webkit-text-stroke: 2px #5f3f03;
+  -webkit-text-stroke: 2px #352301;
  }
+
 .header1 {
     /* padding-top: 50px; */
     text-align: center;
@@ -43,8 +45,8 @@ header {
 
 }
 
-.mainContentBrad {
-  background-image: url("../assets/images/GavinMerch.png");
+.mainContentKyle {
+  background-image: url("../assets/images/armorBG.png");
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: -100px;
@@ -85,7 +87,7 @@ header {
   /* justify-content: end; */
 }
 
-.BradTalis {
+.KyleKnight {
   margin-top: -80px;
 }
 
@@ -135,7 +137,7 @@ header {
       width: 60% !important;
       
   }
-  .BradTalis {
+  .KyleKnight {
       margin-top: 10px;
       margin-left: -100px !important;
   }
@@ -157,7 +159,7 @@ header {
   .cardContainer {
       width: 60% !important;
   }
-  .BradTalis img {
+  .KyleKnight img {
       height: 400px !important;
       width: 280px !important;
   }
@@ -170,7 +172,7 @@ header {
   .cardContainer {
       width: 80% !important;
   }
-  .BradTalis img {
+  .KyleKnight img {
       height: 200px !important;
       width: 100px !important;
       margin-left: 100px !important;

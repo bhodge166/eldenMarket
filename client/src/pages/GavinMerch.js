@@ -84,7 +84,7 @@ const GavinMerch = () => {
   };
   apiCall();
   return (
-    <>
+    <div style={{width: '100%'}}>
       <Jumbotron fluid className="text-light">
         <header>
           <h1 className="header1">Sorceries</h1>
@@ -106,7 +106,7 @@ const GavinMerch = () => {
             <div className="bradAv mx-3">
               <LinkContainer to="/bradmerch">
                 <img
-                  src={weapon}
+                  src={items}
                   alt="bradsMerch"
                   height="90px"
                   width="80px"
@@ -117,7 +117,7 @@ const GavinMerch = () => {
             <div className="jakeAv mx-3">
               <LinkContainer to="/jakemerch">
                 <img
-                  src={items}
+                  src={weapon}
                   alt="jakesMerch"
                   height="90px"
                   width="90px"
@@ -163,38 +163,39 @@ const GavinMerch = () => {
         </header>
       </Jumbotron>
       
-        <div style={{ position: "relative" }}>
-          <img
+        <div className="mainContentGavin" style={{ position: "relative", width: '100%', height: '1000px' }}>
+          {/* <img
             src={gavinBg}
             className="merchantBg bg-image"
             alt="Merchant Image"
-          />
+          /> */}
           <div className="Witch float-left">
             <img
               src={gavin}
               alt="gavinsMerch"
               height="600px"
               width="300px"
-              style={{ position: "absolute", marginTop: 100, marginLeft: 150 }}
+              style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
             />
           </div>
 
           <Container
-            className="cardContainer md-8"
-            style={{ position: "absolute", marginTop: -900, marginLeft: 200 }}
+            className="cardContainer"
+            style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
           >
-            <h2>
+            <h2 className="wood-text">
               {searchedItems.length
-                ? `Viewing ${searchedItems.length} results:`
+                ? `Gavin's ${searchedItems.length} most prized sorceries`
                 : "Something went wrong"}
             </h2>
-            <CardColumns className="searchCard">
+            <div className="searchCard">
               {searchedItems.map((item) => {
                 return (
-                  <Card key={item.id} border="dark">
+                  <Card className="resultCard" key={item.id} border="dark">
                     {item.image ? (
                       <Card.Img
                         src={item.image}
+                        className="cardImg"
                         alt={`The cover for ${item.title}`}
                         variant="top"
                       />
@@ -223,11 +224,11 @@ const GavinMerch = () => {
                   </Card>
                 );
               })}
-            </CardColumns>
+            </div>
           </Container>
         </div>
      
-    </>
+  </div>
   );
 };
 
