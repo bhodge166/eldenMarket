@@ -56,7 +56,7 @@ const PeterMerch = () => {
   return (
     <>
       <div className="App App-custom bkg ">
-        <img src={eldenRing} className="intro" alt="intro"style={{ width: "900px" }} />
+        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "50px" }} />
         <div>
           
           <Navbar />

@@ -65,7 +65,7 @@ const SignupForm = () => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor="username" className="star">Username</Form.Label>
+          <Form.Label htmlFor="username" className="star font-weight-bold">Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your username"
@@ -73,7 +73,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.username}
             required
-            className="bg-dark"
+            className="bg-dark text-white"
           />
           <Form.Control.Feedback type="invalid">
             Username is required!
@@ -81,7 +81,7 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="email" className="star">Email</Form.Label>
+          <Form.Label htmlFor="email" className="star font-weight-bold">Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Your email address"
@@ -89,7 +89,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
-            className="bg-dark"
+            className="bg-dark text-white"
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -97,7 +97,7 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password" className="star">Password</Form.Label>
+          <Form.Label htmlFor="password" className="star font-weight-bold">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -105,7 +105,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
-            className="bg-dark"
+            className="bg-dark text-white" style={{ fontColor: "black" }}
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
@@ -121,7 +121,7 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
-          className="star"
+          className="starA star navglow font-weight-bold" style={{ fontSize: "32px" }}
         >
           Submit
         </Button>

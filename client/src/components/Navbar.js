@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 // import { Routes } from "react-router-dom";
 import armor from "../assets/images/armor1.png";
-import spells from "../assets/images/books2.png";
+import spells from "../assets/images/books1.png";
 import items from "../assets/images/talisman.png";
 import pets from "../assets/images/realdragon.png";
 import runes from "../assets/images/rune.png";
@@ -55,8 +55,8 @@ const Bar = () => {
         </LinkContainer>
         <LinkContainer to="/gavinmerch">
           <Nav.Link className=" NavItem mb-1 mx-3">
-            <img src={spells} className="icon" alt="items" />
-            <p className="navglow  ">Spells</p>
+            <img src={spells} className="icon " alt="items" style={{ marginTop: "45px" }} />
+            <p className="navglow mt-4 ">Spells</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/runefarm">
@@ -117,13 +117,13 @@ const Bar = () => {
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
                 <Nav.Item >
-                  <Nav.Link eventKey="login" className="navglow star font-weight-bold">Login</Nav.Link>
+                  <Nav.Link eventKey="login" className="navglow starA font-weight-bold mt-3">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item >
-                  <Nav.Link eventKey="signup" className="star font-weight-bold">Sign Up</Nav.Link>
+                  <Nav.Link eventKey="signup" className="navglow starA font-weight-bold mt-3 mx-3">Sign Up</Nav.Link>
 
                 </Nav.Item>
-                <img src={character} style={{ width: "12%", marginLeft: "330px" }} alt="character login" />
+                <img src={character} style={{ width: "14%", marginLeft: "210px", marginTop: "5px" }} alt="character login" />
               </Nav>
             </Modal.Title>
           </Modal.Header>

@@ -56,7 +56,7 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group >
+        <Form.Group>
           <Form.Label htmlFor="email" className="star font-weight-bold">Email</Form.Label>
           <Form.Control
             type="text"
@@ -65,7 +65,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
-            className="bg-dark"
+            className="bg-dark text-white"
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -81,7 +81,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
-            className="bg-dark"
+            className="bg-dark text-white"
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
@@ -91,8 +91,8 @@ const LoginForm = () => {
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
-          className="star"
-          style={{ fontSize: "24px" }}
+          className="starA star navglow font-weight-bold"
+          style={{ fontSize: "32px" }}
         >
           Submit
         </Button>

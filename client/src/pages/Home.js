@@ -20,7 +20,7 @@ import eldenRing from '../assets/images/eldenring_new.png';
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import armor from '../assets/images/armor1.png';
-import spells from '../assets/images/books2.png';
+import spells from '../assets/images/books1.png';
 import items from '../assets/images/talisman.png';
 import pets from '../assets/images/realdragon.png';
 import weapon from '../assets/images/swordnshield.png';
@@ -38,8 +38,8 @@ const Home = () => {
     return (
 
 
-      //  {/* BACKGROUND BEGINS HERE */ }
-        < div className = "bkg" > <div className="App App-custom ">
+        //  {/* BACKGROUND BEGINS HERE */ }
+        < div className="bkg" > <div className="App App-custom ">
             <a href="/"><img src={eldenRing} className="intro" alt="intro" /></a>
             <div>
                 <Navbar />
@@ -48,10 +48,10 @@ const Home = () => {
         </div>
             {/* ---------------------- */}
 
-    {/* LINE BORDER BETWEEN NAVBAR AND HOMEPAGE */ }
-    <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
-    </div>
-    {/* ----------------------------------------*/ }
+            {/* LINE BORDER BETWEEN NAVBAR AND HOMEPAGE */}
+            <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
+            </div>
+            {/* ----------------------------------------*/}
 
             <div className="row ">
 
@@ -143,7 +143,7 @@ const Home = () => {
                 </div>
                 {/* ------------- */}
             </div>
-            <footer className="star text-center"><img src={pets} className="App-logo" alt="items" />FOOTER<img src={pets} className="App-logo" alt="items" /></footer>
+            <footer className="star text-center"><img src={spells} className="App-logo" alt="items" />FOOTER<img src={pets} className="App-logo" alt="items" /></footer>
         </div >
 
 
