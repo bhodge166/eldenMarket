@@ -65,7 +65,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
-            className="bg-dark text-white"
+            style={{ backgroundColor: "black", fontFamily: "Garamond", color: "orange" }}
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -81,7 +81,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
-            className="bg-dark text-white"
+            style={{ backgroundColor: "black", fontFamily: "Garamond", color: "orange" }}
           />
           <Form.Control.Feedback type="invalid">
             Password is required!

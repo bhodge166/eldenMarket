@@ -73,17 +73,14 @@ You can [download](https://nodejs.org/en/download/) the latest installable versi
 This software uses the following open source packages:
 
 - [Node.js](https://nodejs.org/)
+- [React](https://www.npmjs.com/package/react)
+- [React bootstrap](https://www.npmjs.com/package/react-bootstrap)
+- [jwt](https://www.npmjs.com/package/jwt)
+- [graphql](https://www.npmjs.com/package/graphql)
 - [express v4.17.3](https://www.npmjs.com/package/express)
-- [mysql2 v2.3.3](https://www.npmjs.com/package/mysql2)
 - [bcrypt v5.0.1](https://www.npmjs.com/package/bcrypt)
-- [connect-session-sequelize v7.1.2](https://www.npmjs.com/package/connect-session-sequelize)
-- [dotenv v16.0.0](https://www.npmjs.com/package/dotenv)
-- [express-handlebars v6.0.3](https://www.npmjs.com/package/express-handlebars)
-- [express-session v1.17.2](https://www.npmjs.com/package/express-session)
-- [handlebars v4.7.7](https://www.npmjs.com/package/handlebars)
-- [sequelize - v6.17.0](https://www.npmjs.com/package/sequelize)
 - [heroku - latest version](https://www.heroku.com)
-- [jshint v2.13.4](https://www.npmjs.com/package/jshint)
+- [webVitals](https://www.npmjs.com/package/web-vitals-react-hook)
 
 ## Authors
 
