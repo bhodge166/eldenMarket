@@ -82,12 +82,13 @@ const KyleMerch = () => {
   // };
   apiCall();
   return (
-
-    <div style={{width: '100%'}}>
-
+    <div style={{ width: "100%" }}>
       <Navbar />
-     
-       <div className="mainContentKyle" style={{ position: "relative", width: '100%', height: '1000px' }}>
+
+      <div
+        className="mainContentKyle"
+        style={{ position: "relative", width: "100%", height: "1000px" }}
+      >
         {/* <img
           src={gavinBg}
           className="merchantBg bg-image"
@@ -105,9 +106,9 @@ const KyleMerch = () => {
 
         <Container
           className="cardContainer"
-          style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
+          style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
         >
-          <h2 className="wood-text" >
+          <h2 className="wood-text">
             {searchedItems.length
               ? `Kyle's ${searchedItems.length} most prized pieces of armor`
               : "Something went wrong"}
@@ -128,8 +129,7 @@ const KyleMerch = () => {
                     <Card.Title>{item.title}</Card.Title>
                     <p className="small">Drops: {item.drops}</p>
                     <Card.Text>{item.drops}</Card.Text>
-                    {Auth.loggedIn() && (
-
+                    {/* {Auth.loggedIn() && (
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -140,19 +140,17 @@ const KyleMerch = () => {
                         {savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
                         )
-                          ? "This armor has been saved
+                          ? "This armor has been saved"
                           : "Save this armor!"}
                       </Button>
-                    )}
-
+                    )} */}
                   </Card.Body>
                 </Card>
               );
             })}
           </div>
         </Container>
-          </div>
-   
+      </div>
     </div>
   );
 };
