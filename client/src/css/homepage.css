@@ -10,6 +10,10 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
+.fc {
+  color: white !important;
+}
 .starC {
   @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=EB+Garamond&family=Orbitron:wght@900&family=Passion+One:wght@700&display=swap");
   font-family: Garamond;
