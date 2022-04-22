@@ -5,31 +5,31 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    cartCount: Int
-    savedCart: [Cart]
+    orders: [Order]
     runes: Int
   }
 
-  type Cart {
-    image: String
-    title: String!
-    id: ID!
-    description: String
-    effect: String
-    type: String
-    price: Int
-    drops: [String]
+  type Category {
+    _id: ID
+    name: String
   }
 
-  input CartInput {
+  type Product {
+    _id: ID
     image: String
-    title: String!
-    id: ID!
+    name: String
     description: String
     effect: String
     type: String
     price: Int
     drops: [String]
+    category: Category
+  }
+
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
   }
 
   type Auth {
@@ -39,13 +39,17 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    order(_id: ID!): Order
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveCart(cart: CartInput!): User
-    removeCart(cartId: ID!): User
+    addOrder(products: [ID]!): Order
+    removeProduct(id: ID!): User
     addRunes: User
     removeRunes(_id: ID!, runes: Int!): User
   }

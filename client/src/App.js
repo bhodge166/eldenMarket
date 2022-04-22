@@ -17,7 +17,11 @@ import GavinMerch from "./pages/GavinMerch";
 import JakeMerch from "./pages/JakeMerch";
 import KyleMerch from "./pages/KyleMerch";
 import PeterMerch from "./pages/PeterMerch";
+import Inventory from "./pages/Inventory";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+//kyles container for login codegen
+
 
 // import Navbar from "./components/Navbar";
 
@@ -44,6 +48,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+
       <Router>
         <>
           <Routes>
@@ -57,6 +62,7 @@ function App() {
             <Route path="/jakemerch" element={<JakeMerch />} />
             <Route path="/kylemerch" element={<KyleMerch />} />
             <Route path="/petermerch" element={<PeterMerch />} />
+            <Route path="/Inventory" element={<Inventory />} />
             {/* need a 404 page */}
           </Routes>
         </>

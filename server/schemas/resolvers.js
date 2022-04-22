@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Product, Category, Order } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -9,6 +9,39 @@ const resolvers = {
         const user = await User.findOne({ _id: context.user._id });
         return user;
       }
+    },
+    products: async (parent, { category, name }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category;
+      }
+
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
+
+      return await Product.find(params).populate("category");
+    },
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id).populate("category");
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "orders.products",
+          populate: "category",
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+    categories: async () => {
+      return await Category.find();
     },
   },
   Mutation: {
@@ -36,24 +69,29 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveCart: async (parent, { cart }, context) => {
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { savedCart: cart } },
-          { new: true, runValidators: true }
-        );
-        return updatedUser;
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { orders: order },
+        });
+
+        return order;
       }
+
+      throw new AuthenticationError("Not logged in");
     },
-    removeCart: async (parent, args, context) => {
+    removeProduct: async (parent, args, context) => {
       if (context.user) {
-        const cartRemove = await User.findOneAndUpdate(
+        console.log(args);
+        const productRemove = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedCarts: { cartId: args.cartId } } },
+          { $pull: { orders: { id: args.id } } },
           { new: true }
         );
-        return cartRemove;
+        return productRemove;
       }
     },
     addRunes: async (parent, args, context) => {

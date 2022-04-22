@@ -23,6 +23,7 @@ import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
+
 const Bar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
@@ -66,7 +67,7 @@ const Bar = () => {
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">
-          <Container fluid>
+          <Container fluid className="fixed-top">
             <Navbar.Brand as={Link} to="/"></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" />
             <Navbar.Collapse id="navbar">
@@ -81,7 +82,7 @@ const Bar = () => {
                 {/* if user is logged in show saved books and logout */}
                 {Auth.loggedIn() ? (
                   <>
-                    <Nav.Link as={Link} to='/saved' className="navbar "><p className="navglow">Saved Items</p>
+                    <Nav.Link as={Link} to='/inventory' className="navbar "><p className="navglow">Inventory</p>
                     </Nav.Link>
                     <Nav.Link onClick={Auth.logout} className="navbar "><p className="navglow">Logout</p></Nav.Link>
                   </>

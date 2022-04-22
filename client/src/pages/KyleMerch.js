@@ -11,16 +11,17 @@ import {
 import React, { useState, useEffect } from "react";
 import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
-import { ADD_TO_CART } from "../utils/mutations";
+// import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import kyle from "../assets/images/knightmerch.png";
 import kyleBg from "../assets/images/armorBG.png";
-import armor from '../assets/images/armor.png';
-import spells from '../assets/images/scroll.png';
-import items from '../assets/images/astrology.png';
-import pets from '../assets/images/dragon.png';
-import weapon from '../assets/images/swordnshield.png';
-import runes from '../assets/images/rune.png';
+import armor from "../assets/images/armor.png";
+import spells from "../assets/images/scroll.png";
+import items from "../assets/images/astrology.png";
+import pets from "../assets/images/dragon.png";
+import weapon from "../assets/images/swordnshield.png";
+import runes from "../assets/images/rune.png";
+import Navbar from "../components/Navbar";
 
 import "../css/KyleMerch.css";
 
@@ -28,9 +29,9 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const KyleMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
- 
+
   const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  const [saveItem] = useMutation(ADD_TO_CART);
+  // const [saveItem] = useMutation(ADD_TO_CART);
 
   useEffect(() => {
     return () => saveItemsIds(savedItemIds);
@@ -60,107 +61,33 @@ const KyleMerch = () => {
     }
   };
 
-  const handleSaveItem = async (id) => {
-    const itemToSave = searchedItems.find((item) => item.id === id);
+  // const handleSaveItem = async (id) => {
+  //   const itemToSave = searchedItems.find((item) => item.id === id);
 
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //   // get token
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    if (!token) {
-      return false;
-    }
+  //   if (!token) {
+  //     return false;
+  //   }
 
-    try {
-       await saveItem({
-        variables: {cart: itemToSave},
-      })
-      setSavedItemIds([...savedItemIds, itemToSave.id]);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //   try {
+  //     await saveItem({
+  //       variables: { cart: itemToSave },
+  //     });
+  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
   apiCall();
   return (
+
     <div style={{width: '100%'}}>
-        <Jumbotron fluid className="text-light">
-      <header>
-        <h1 className="header1">Armory</h1>
-        <div
-          className="miniAvs row"
-          style={{ marginTop: -70, marginLeft: 60 }}
-        >
-          <div className="kyleAv mx-3">
-            <LinkContainer to="/kylemerch">
-              <img
-                src={armor}
-                alt="kylesMerch"
-                height="90px"
-                width="70px"
-                // style={{ marginTop: -10, marginLeft: 100 }}
-              />
-            </LinkContainer>
-          </div>
-          <div className="bradAv mx-3">
-            <LinkContainer to="/bradmerch">
-              <img
-                src={items}
-                alt="bradsMerch"
-                height="90px"
-                width="80px"
-                // style={{ marginLeft: 40 }}
-              />
-            </LinkContainer>
-          </div>
-          <div className="jakeAv mx-3">
-            <LinkContainer to="/jakemerch">
-              <img
-                src={weapon}
-                alt="jakesMerch"
-                height="90px"
-                width="90px"
-                // style={{ marginTop: -10, marginLeft: 200 }}
-              />
-            </LinkContainer>
-          </div>
-          <div className="peterAv mx-3">
-            <LinkContainer to="/petermerch">
-              <img
-                src={pets}
-                alt="petersMerch"
-                height="90px"
-                width="85px"
-                // style={{ marginTop: -10, marginLeft: 200 }}
-              />
-            </LinkContainer>
-          </div>
-          <div className="gavinAv mx-3">
-            <LinkContainer to="/gavinmerch">
-              <img
-                src={spells}
-                alt="gavinsMerch"
-                height="90px"
-                width="70px"
-                // style={{ marginTop: -10, marginLeft: 200 }}
-              />
-            </LinkContainer>
-          </div>
-          
-        </div>
-            <div className="runeAv">
-              <LinkContainer to="/runefarm">
-                <img
-                  src={runes}
-                  alt="runes"
-                  height="80px"
-                  width="80px"
-                  // style={{ marginTop: -10, marginLeft: 200 }}
-                />
-              </LinkContainer>
-            </div>
-      </header>
-        </Jumbotron>
-    
-          <div className="mainContentKyle" style={{ position: "relative", width: '100%', height: '1000px' }}>
+
+      <Navbar />
+     
+       <div className="mainContentKyle" style={{ position: "relative", width: '100%', height: '1000px' }}>
         {/* <img
           src={gavinBg}
           className="merchantBg bg-image"
@@ -200,9 +127,9 @@ const KyleMerch = () => {
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <p className="small">Drops: {item.drops}</p>
-
                     <Card.Text>{item.drops}</Card.Text>
                     {Auth.loggedIn() && (
+
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -213,10 +140,11 @@ const KyleMerch = () => {
                         {savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
                         )
-                          ? "This armor has been saved!"
+                          ? "This armor has been saved
                           : "Save this armor!"}
                       </Button>
                     )}
+
                   </Card.Body>
                 </Card>
               );
@@ -228,6 +156,5 @@ const KyleMerch = () => {
     </div>
   );
 };
-
 
 export default KyleMerch;

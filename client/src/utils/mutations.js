@@ -47,30 +47,26 @@ export const REMOVE_RUNES = gql`
   }
 `;
 
-export const ADD_TO_CART = gql`
-  mutation saveCart($cart: CartInput!) {
-    saveCart(cart: $cart) {
-      _id
-      username
-      cartCount
-      runes
-      savedCart {
-        image
-        title
-        id
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      purchaseDate
+      products {
+        _id
+        name
         description
-        effect
-        type
         price
-        drops
+        category {
+          name
+        }
       }
     }
   }
 `;
 
 export const REMOVE_FROM_CART = gql`
-  mutation removeCart($cartId: ID!) {
-    removeCart(cartId: $cartId) {
+  mutation removeProduct($id: ID!) {
+    removeProduct(id: $id) {
       _id
       username
       cartCount
