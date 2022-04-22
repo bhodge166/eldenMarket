@@ -15,9 +15,9 @@ const typeDefs = gql`
   }
 
   type Product {
+    _id: ID
     image: String
-    name: String!
-    id: ID!
+    name: String
     description: String
     effect: String
     type: String
