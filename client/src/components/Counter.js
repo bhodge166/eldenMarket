@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/counter.css";
 import { ADD_RUNES } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
