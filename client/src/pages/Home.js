@@ -50,7 +50,7 @@ const Home = () => {
                     <img src={store} className="merchStyle" alt="" />
                     <div className="position-absolute mx-5">
                         <img src={jake} alt="" /></div>
-                    <Card className="bg-dark"><Card.Body className="brd"><h1 className="star"><span className="font-weight-bold underline">Name</span> : Jake The Warrior</h1><h1 className="star "><span className="font-weight-bold">Goods</span>: Spells <img src={weapon} className="icon" alt="items" /></h1><h1 className="star"><span className="font-weight-bold">Class</span> : Warrior</h1></Card.Body>
+                    <Card className="bg-dark"><Card.Body className="brd"><h1 className="star"><span className="font-weight-bold underline">Name</span> : Jake The Warrior</h1><h1 className="star "><span className="font-weight-bold">Goods</span>: Weapons <img src={weapon} className="icon" alt="items" /></h1><h1 className="star"><span className="font-weight-bold">Class</span> : Warrior</h1></Card.Body>
                     </Card>
                 </div>
                 {/* KYLES PROFILE */}

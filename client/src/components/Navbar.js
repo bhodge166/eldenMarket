@@ -32,25 +32,25 @@ const Bar = () => {
           <Nav.Link className=" mb-2 ">
             {" "}
             <img src={weapon} className="sns" alt="weapon" />{" "}
-            <p className="navglow  ">jakesMerch</p>
+            <p className="navglow  ">Weapons</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/kylemerch">
           <Nav.Link className=" mb-2 mx-3">
             <img src={armor} className="icon" alt="armor" />{" "}
-            <p className="navglow  ">kyleMerch</p>
+            <p className="navglow  ">Armor</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/petermerch">
           <Nav.Link className=" mt-4 mx-2">
             <img src={pets} className="icon" alt="scrolls" />
-            <p className="navglow  ">peterMerch</p>
+            <p className="navglow  ">Pets</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/bradmerch">
           <Nav.Link className=" mb-1 mx-3">
             <img src={items} className="icon" alt="pets" />
-            <p className="navglow  ">bradMerch</p>
+            <p className="navglow  ">Talismans</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/gavinmerch">
@@ -62,7 +62,7 @@ const Bar = () => {
         <LinkContainer to="/runefarm">
           <Nav.Link className="mb-1 mx-3">
             <img src={runes} className="icon" alt="runes" />
-            <p className="navglow">runeFarm</p>
+            <p className="navglow">Runes</p>
           </Nav.Link>
         </LinkContainer>
         <Navbar bg="black" variant="white" expand="lg">
