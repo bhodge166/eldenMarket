@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Product, Category, Order } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -39,6 +39,9 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
+    },
+    categories: async () => {
+      return await Category.find();
     },
   },
   Mutation: {
