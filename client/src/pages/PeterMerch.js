@@ -15,12 +15,7 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import peter from "../assets/images/ER_Class_Vagabond.png";
 import Navbar from "../components/Navbar";
-import armor from "../assets/images/armor.png";
-import spells from "../assets/images/scroll.png";
-import items from "../assets/images/astrology.png";
-import pets from "../assets/images/dragon.png";
-import weapon from "../assets/images/swordnshield.png";
-import runes from "../assets/images/rune.png";
+
 
 import "../css/PeterMerch.css";
 import { LinkContainer } from "react-router-bootstrap";

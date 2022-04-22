@@ -17,16 +17,6 @@ import gavin from "../assets/images/witch.png";
 import gavinBg from "../assets/images/GavinMerch.png";
 import Navbar from "../components/Navbar";
 
-import peter from "../assets/images/ER_Class_Vagabond.png";
-import brad from "../assets/images/ER_Class_Astrologer.png";
-import jake from "../assets/images/Elden-Ring-Crucible-Set.png";
-import armor from "../assets/images/armor.png";
-import spells from "../assets/images/scroll.png";
-import items from "../assets/images/astrology.png";
-import pets from "../assets/images/dragon.png";
-import weapon from "../assets/images/swordnshield.png";
-import runes from "../assets/images/rune.png";
-import character from "../assets/images/knight.png";
 import "../css/GavinMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
 

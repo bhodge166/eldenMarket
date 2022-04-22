@@ -14,12 +14,7 @@ import { useMutation } from "@apollo/client";
 // import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import brad from "../assets/images/ER_Class_Astrologer.png";
-import armor from "../assets/images/armor.png";
-import spells from "../assets/images/scroll.png";
-import items from "../assets/images/astrology.png";
-import pets from "../assets/images/dragon.png";
-import weapon from "../assets/images/swordnshield.png";
-import runes from "../assets/images/rune.png";
+
 import "../css/BradMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
 import Navbar from "../components/Navbar";
