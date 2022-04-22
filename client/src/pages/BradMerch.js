@@ -9,10 +9,9 @@ import {
   CardColumns,
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-// import { ADD_TO_CART } from "../utils/mutations";
+import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
+import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import brad from "../assets/images/ER_Class_Astrologer.png";
 
@@ -25,14 +24,7 @@ import logo from "../logo.svg";
 import eldenRing from "../assets/images/eldenring_new.png";
 
 const BradMerch = () => {
-  const [searchedItems, setSearchedItems] = useState([]);
-
-  const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  // const [saveItem] = useMutation(ADD_TO_CART);
-
-  useEffect(() => {
-    return () => saveItemsIds(savedItemIds);
-  });
+  const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
   const currentCategory = "Talismans";
 
@@ -45,25 +37,24 @@ const BradMerch = () => {
     );
   }
 
-  // const handleSaveItem = async (id) => {
-  //   const itemToSave = searchedItems.find((item) => item.id === id);
+  const handlePurchaseItem = async (id) => {
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if (!token) {
-  //     return false;
-  //   }
+    if (!token) {
+      return false;
+    }
 
-  //   try {
-  //     await saveItem({
-  //       variables: { cart: itemToSave },
-  //     });
-  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    try {
+      const { data2 } = await purchaseItem({
+        variables: { products: id },
+      });
+      console.log(data2);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
 
   return (
     <>
@@ -104,8 +95,8 @@ const BradMerch = () => {
             style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
           >
             <h2 className="wood-text">
-              {searchedItems.length
-                ? `Brad's ${searchedItems.length} most prized talismans`
+            {filterProducts().length
+                ? `Brad's ${filterProducts().length} most prized talismans`
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
@@ -128,21 +119,13 @@ const BradMerch = () => {
                       </p>
 
                       <Card.Text>{item.drops}</Card.Text>
-                      {/* {Auth.loggedIn() && (
-                  <Button
-                    disabled={savedItemIds?.some(
-                      (savedItemId) => savedItemId === item.id
+                      {Auth.loggedIn() && (
+                      <Button
+                        className="btn-block btn-info"
+                        onClick={() => handlePurchaseItem(item._id)}
+                      > Purchase
+                      </Button>
                     )}
-                    className="btn-block btn-info"
-                    onClick={() => handleSaveItem(item.id)}
-                  >
-                    {savedItemIds?.some(
-                      (savedItemId) => savedItemId === item.id
-                    )
-                      ? "This talisman has been saved!"
-                      : "Save this talisman!"}
-                  </Button>
-                )} */}
                     </Card.Body>
                   </Card>
                 );

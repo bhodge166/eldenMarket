@@ -9,10 +9,9 @@ import {
   CardColumns,
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-// import { ADD_TO_CART } from "../utils/mutations";
+import { QUERY_ALL_PRODUCTS, QUERY_PRODUCT } from "../utils/queries";
+import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
 import jake from "../assets/images/Elden-Ring-Crucible-Set.png";
 //navbar stuff
@@ -23,14 +22,7 @@ import "../css/JakeMerch.css";
 
 import { LinkContainer } from "react-router-bootstrap";
 const JakeMerch = () => {
-  const [searchedItems, setSearchedItems] = useState([]);
-
-  const [savedItemIds, setSavedItemIds] = useState(getItemIds());
-  // const [saveItem] = useMutation(ADD_TO_CART);
-
-  useEffect(() => {
-    return () => saveItemsIds(savedItemIds);
-  });
+  const [purchaseItem, { error, data2 }] = useMutation(ADD_TO_CART);
 
   const currentCategory = "Weapons";
 
@@ -43,25 +35,24 @@ const JakeMerch = () => {
     );
   }
 
-  // const handleSaveItem = async (id) => {
-  //   const itemToSave = searchedItems.find((item) => item.id === id);
+  const handlePurchaseItem = async (id) => {
 
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if (!token) {
-  //     return false;
-  //   }
+    if (!token) {
+      return false;
+    }
 
-  //   try {
-  //     await saveItem({
-  //       variables: { cart: itemToSave },
-  //     });
-  //     setSavedItemIds([...savedItemIds, itemToSave.id]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    try {
+      const { data2 } = await purchaseItem({
+        variables: { products: id },
+      });
+      console.log(data2);
+    } catch (err) {
+      console.error(JSON.stringify(err));
+    }
+  };
   return (
     <>
       <div className="App App-custom bkg">
@@ -81,11 +72,7 @@ const JakeMerch = () => {
             marginTop: "10px",
           }}
         >
-          {/* <img
-          src={gavinBg}
-          className="merchantBg bg-image"
-          alt="Merchant Image"
-        /> */}
+          
           <div className="JakeKnight float-left">
             <img
               src={jake}
@@ -101,8 +88,8 @@ const JakeMerch = () => {
             style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
           >
             <h2 className="wood-text">
-              {searchedItems.length
-                ? `Jake's ${searchedItems.length} most prized weapons`
+            {filterProducts().length
+                ? `Jake's ${filterProducts().length} most prized weapons`
                 : "Something went wrong"}
             </h2>
             <div className="searchCard">
@@ -125,21 +112,13 @@ const JakeMerch = () => {
                       </p>
 
                       <Card.Text>{item.drops}</Card.Text>
-                      {/* {Auth.loggedIn() && (
+                      {Auth.loggedIn() && (
                       <Button
-                        disabled={savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )}
                         className="btn-block btn-info"
-                        onClick={() => handleSaveItem(item.id)}
-                      >
-                        {savedItemIds?.some(
-                          (savedItemId) => savedItemId === item.id
-                        )
-                          ? "This weapon has been saved!"
-                          : "Save this weapon!"}
+                        onClick={() => handlePurchaseItem(item._id)}
+                      > Purchase
                       </Button>
-                    )} */}
+                    )}
                     </Card.Body>
                   </Card>
                 );
