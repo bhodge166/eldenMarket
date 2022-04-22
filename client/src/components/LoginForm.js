@@ -46,17 +46,18 @@ const LoginForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}  >
         <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
           variant="danger"
+
         >
           Something went wrong with your login credentials!
         </Alert>
-        <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
+        <Form.Group >
+          <Form.Label htmlFor="email" className="star font-weight-bold">Email</Form.Label>
           <Form.Control
             type="text"
             placeholder="Your email"
@@ -64,6 +65,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
+            className="bg-dark"
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -71,7 +73,7 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Label htmlFor="password" className="star font-weight-bold">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Your password"
@@ -79,6 +81,7 @@ const LoginForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
+            className="bg-dark"
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
@@ -88,6 +91,8 @@ const LoginForm = () => {
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
+          className="star"
+          style={{ fontSize: "24px" }}
         >
           Submit
         </Button>

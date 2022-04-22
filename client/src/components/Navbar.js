@@ -109,23 +109,26 @@ const Bar = () => {
         show={showModal}
         onHide={() => setShowModal(false)}
         aria-labelledby="signup-modal"
+        className="border border-3"
       >
         {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey="login">
-          <Modal.Header closeButton>
+        <Tab.Container defaultActiveKey="login" >
+          <Modal.Header closeButton className=" border border-3 border-warning" style={{ backgroundColor: "black" }}>
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
-                <Nav.Item>
-                  <Nav.Link eventKey="login">Login</Nav.Link>
+                <Nav.Item >
+                  <Nav.Link eventKey="login" className="navglow star font-weight-bold">Login</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                <Nav.Item >
+                  <Nav.Link eventKey="signup" className="star font-weight-bold">Sign Up</Nav.Link>
+
                 </Nav.Item>
+                <img src={character} style={{ width: "12%", marginLeft: "330px" }} alt="character login" />
               </Nav>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
+          <Modal.Body className="border border-3 border-warning" style={{ backgroundColor: "black" }}>
+            <Tab.Content >
               <Tab.Pane eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
