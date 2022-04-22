@@ -73,7 +73,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.username}
             required
-            className="bg-dark text-white"
+            style={{ backgroundColor: "black", fontFamily: "Garamond", color: "orange" }}
           />
           <Form.Control.Feedback type="invalid">
             Username is required!
@@ -89,7 +89,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
-            className="bg-dark text-white"
+            style={{ backgroundColor: "black", fontFamily: "Garamond", color: "orange" }}
           />
           <Form.Control.Feedback type="invalid">
             Email is required!
@@ -105,7 +105,7 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
-            className="bg-dark text-white" style={{ fontColor: "black" }}
+            style={{ backgroundColor: "black", fontFamily: "Garamond", color: "orange" }}
           />
           <Form.Control.Feedback type="invalid">
             Password is required!
