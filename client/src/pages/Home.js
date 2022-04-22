@@ -27,6 +27,9 @@ import weapon from '../assets/images/swordnshield.png';
 import store from '../assets/images/midevilhouse.png';
 import { LinkContainer } from "react-router-bootstrap";
 import runes from '../assets/images/rune.png';
+
+
+// HOMEPAGE CREATION STARTS HERE
 const Home = () => {
 
     const [searchedItems, setSearchedItems] = useState([]);
@@ -34,23 +37,28 @@ const Home = () => {
 
     return (
 
-        <div className="bkg"><div className="App App-custom ">
+
+      //  {/* BACKGROUND BEGINS HERE */ }
+        < div className = "bkg" > <div className="App App-custom ">
             <a href="/"><img src={eldenRing} className="intro" alt="intro" /></a>
             <div>
                 <Navbar />
 
             </div>
         </div>
-            <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
+            {/* ---------------------- */}
 
-            </div>
+    {/* LINE BORDER BETWEEN NAVBAR AND HOMEPAGE */ }
+    <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
+    </div>
+    {/* ----------------------------------------*/ }
 
             <div className="row ">
 
                 {/* JAKES PROFILE */}
                 <div className=" column ms-5 mx-5" >
                     <LinkContainer to="/jakeMerch">
-                        <h1 className=" navglow text-center font-weight-bold">Come see Jake the Warrior</h1>
+                        <h1 className=" navglow text-center font-weight-bold mt-5">Come see Jake the Warrior</h1>
                     </LinkContainer>
                     <img src={store} className="merchStyle" alt="" />
                     <div className="position-absolute mx-5">
@@ -67,7 +75,7 @@ const Home = () => {
                 {/* KYLES PROFILE */}
                 <div className="column ms-5 mx-5" style={{ position: "relative" }}>
                     <LinkContainer to="/kyleMerch">
-                        <h1 className="navglow text-center font-weight-bold " >Visit Kyle The Knight's Store</h1>
+                        <h1 className="navglow text-center font-weight-bold mt-5" >Visit Kyle The Knight's Store</h1>
                     </LinkContainer>
                     <img src={store} className="merchStyle" alt="" />
                     <div className="position-absolute mx-5 my-5">
@@ -84,7 +92,7 @@ const Home = () => {
                 {/* Peters PROFILE */}
                 <div className="column ms-5 mx-5" style={{ position: "relative" }}>
                     <LinkContainer to="/peterMerch">
-                        <h1 className=" navglow text-center font-weight-bold "> Checkout Peters Collectable Pets! </h1>
+                        <h1 className=" navglow text-center font-weight-bold mt-2"> Checkout Peters Collectable Pets! </h1>
                     </LinkContainer>
                     <img src={store} className="merchStyle" alt="" />
                     <div style={{ position: "absolute" }}>
@@ -102,7 +110,7 @@ const Home = () => {
 
                 <div className="column ms-5 mx-5" style={{ position: "relative" }}>
                     <LinkContainer to="/bradmerch">
-                        <h1 className="cursor navglow text-center font-weight-bold">Talismans from Brad the Astrologist!</h1>
+                        <h1 className="cursor navglow text-center font-weight-bold mt-5">Talismans from Brad the Astrologist!</h1>
                     </LinkContainer>
                     <img src={store} className="merchStyle" alt="" />
                     <div style={{ position: "absolute" }}>
@@ -120,7 +128,7 @@ const Home = () => {
                 {/* GAVINS PROFILE */}
                 <div className="column" style={{ position: "relative" }}>
                     <LinkContainer to="/gavinMerch">
-                        <h1 className=" navglow text-center font-weight-bold">Stop by Gavin the Wizard for spells!</h1>
+                        <h1 className=" navglow text-center font-weight-bold mt-5">Stop by Gavin the Wizard for spells!</h1>
                     </LinkContainer>
                     <img src={store} className="merchStyle" alt="" />
                     <div style={{ position: "absolute" }}>

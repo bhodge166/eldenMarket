@@ -68,9 +68,9 @@ const BradMerch = () => {
   return (
     <>
       <div className="App App-custom bkg">
-        <img src={eldenRing} className="intro" alt="intro" />
+        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px" }} />
         <div>
-          <img src={logo} className="App-logo" alt="logo" />
+         
           <Navbar />
         </div>
       </div>
