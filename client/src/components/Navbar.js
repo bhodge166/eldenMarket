@@ -29,20 +29,20 @@ const Bar = () => {
     <div>
       <Nav className="navBG customtxt" activeKey={window.location.pathname}>
         <LinkContainer to="/jakemerch">
-          <Nav.Link className=" mb-1 ">
+          <Nav.Link className=" mb-2 ">
             {" "}
             <img src={weapon} className="sns" alt="weapon" />{" "}
             <p className="navglow  ">jakesMerch</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/kylemerch">
-          <Nav.Link className=" mb-4 mx-3">
+          <Nav.Link className=" mb-2 mx-3">
             <img src={armor} className="icon" alt="armor" />{" "}
             <p className="navglow  ">kyleMerch</p>
           </Nav.Link>
         </LinkContainer>
         <LinkContainer to="/petermerch">
-          <Nav.Link className="  mx-2">
+          <Nav.Link className=" mt-4 mx-2">
             <img src={pets} className="icon" alt="scrolls" />
             <p className="navglow  ">peterMerch</p>
           </Nav.Link>

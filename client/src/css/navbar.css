@@ -73,6 +73,7 @@
   padding: 0.25em 1em;
   border-radius: 0.25em;
   text-shadow: 0 0 0.95rem rgb(255, 0, 55), 0 0 0.125em currentColor;
+  background: black;
 }
 
 :root {
