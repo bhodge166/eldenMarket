@@ -15,12 +15,12 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import peter from "../assets/images/ER_Class_Vagabond.png";
 import Navbar from "../components/Navbar";
-import armor from '../assets/images/armor.png';
-import spells from '../assets/images/scroll.png';
-import items from '../assets/images/astrology.png';
-import pets from '../assets/images/dragon.png';
-import weapon from '../assets/images/swordnshield.png';
-import runes from '../assets/images/rune.png';
+import armor from "../assets/images/armor.png";
+import spells from "../assets/images/scroll.png";
+import items from "../assets/images/astrology.png";
+import pets from "../assets/images/dragon.png";
+import weapon from "../assets/images/swordnshield.png";
+import runes from "../assets/images/rune.png";
 
 import "../css/PeterMerch.css";
 import { LinkContainer } from "react-router-bootstrap";
@@ -84,9 +84,12 @@ const PeterMerch = () => {
 
   apiCall();
   return (
-    <div style={{width: '100%'}}>
-       <Navbar />
-      <div className="mainContentPeter" style={{ position: "relative", width: '100%', height: '1000px' }}>
+    <div style={{ width: "100%" }}>
+      <Navbar />
+      <div
+        className="mainContentPeter"
+        style={{ position: "relative", width: "100%", height: "1000px" }}
+      >
         {/* <img
           src={gavinBg}
           className="merchantBg bg-image"
@@ -104,7 +107,7 @@ const PeterMerch = () => {
 
         <Container
           className="cardContainer"
-          style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
+          style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
         >
           <h2 className="wood-text">
             {searchedItems.length
@@ -128,7 +131,7 @@ const PeterMerch = () => {
                     <p className="small">Drops: {item.drops}</p>
 
                     <Card.Text>{item.drops}</Card.Text>
-                    {Auth.loggedIn() && (
+                    {/* {Auth.loggedIn() && (
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -142,7 +145,7 @@ const PeterMerch = () => {
                           ? "This creature has been saved!"
                           : "Save this creature!"}
                       </Button>
-                    )}
+                    )} */}
                   </Card.Body>
                 </Card>
               );
@@ -150,8 +153,7 @@ const PeterMerch = () => {
           </div>
         </Container>
       </div>
-   
-</div>
+    </div>
   );
 };
 

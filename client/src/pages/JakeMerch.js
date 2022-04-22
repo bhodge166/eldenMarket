@@ -13,14 +13,14 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 // import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
-import jake from '../assets/images/Elden-Ring-Crucible-Set.png';
+import jake from "../assets/images/Elden-Ring-Crucible-Set.png";
 import Navbar from "../components/Navbar";
-import armor from '../assets/images/armor.png';
-import spells from '../assets/images/scroll.png';
-import items from '../assets/images/astrology.png';
-import pets from '../assets/images/dragon.png';
-import weapon from '../assets/images/swordnshield.png';
-import runes from '../assets/images/rune.png';
+import armor from "../assets/images/armor.png";
+import spells from "../assets/images/scroll.png";
+import items from "../assets/images/astrology.png";
+import pets from "../assets/images/dragon.png";
+import weapon from "../assets/images/swordnshield.png";
+import runes from "../assets/images/rune.png";
 
 import "../css/JakeMerch.css";
 
@@ -80,9 +80,12 @@ const JakeMerch = () => {
   // };
   apiCall();
   return (
-    <div style={{width: '100%'}}>
-    <Navbar />
-     <div className="mainContentKyle" style={{ position: "relative", width: '100%', height: '1000px' }}>
+    <div style={{ width: "100%" }}>
+      <Navbar />
+      <div
+        className="mainContentKyle"
+        style={{ position: "relative", width: "100%", height: "1000px" }}
+      >
         {/* <img
           src={gavinBg}
           className="merchantBg bg-image"
@@ -100,7 +103,7 @@ const JakeMerch = () => {
 
         <Container
           className="cardContainer"
-          style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
+          style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
         >
           <h2 className="wood-text">
             {searchedItems.length
@@ -124,7 +127,7 @@ const JakeMerch = () => {
                     <p className="small">Drops: {item.drops}</p>
 
                     <Card.Text>{item.drops}</Card.Text>
-                    {Auth.loggedIn() && (
+                    {/* {Auth.loggedIn() && (
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -138,17 +141,15 @@ const JakeMerch = () => {
                           ? "This weapon has been saved!"
                           : "Save this weapon!"}
                       </Button>
-                    )}
+                    )} */}
                   </Card.Body>
                 </Card>
               );
             })}
           </div>
         </Container>
-          </div>
-   
+      </div>
     </div>
-
   );
 };
 
