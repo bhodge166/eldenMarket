@@ -13,8 +13,17 @@ import { saveItemsIds, getItemIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/client";
 // import { ADD_TO_CART } from "../utils/mutations";
 import Auth from "../utils/auth";
+import peter from "../assets/images/ER_Class_Vagabond.png";
 import Navbar from "../components/Navbar";
+import armor from '../assets/images/armor.png';
+import spells from '../assets/images/scroll.png';
+import items from '../assets/images/astrology.png';
+import pets from '../assets/images/dragon.png';
+import weapon from '../assets/images/swordnshield.png';
+import runes from '../assets/images/rune.png';
 
+import "../css/PeterMerch.css";
+import { LinkContainer } from "react-router-bootstrap";
 const PeterMerch = () => {
   const [searchedItems, setSearchedItems] = useState([]);
   const [price, setPrice] = useState(0);
@@ -75,64 +84,74 @@ const PeterMerch = () => {
 
   apiCall();
   return (
-    <>
-      <Navbar />
-      <Jumbotron fluid className="text-light bg-dark">
-        <Container>
-          <h1>Creatures</h1>
-        </Container>
-      </Jumbotron>
+    <div style={{width: '100%'}}>
+       <Navbar />
+      <div className="mainContentPeter" style={{ position: "relative", width: '100%', height: '1000px' }}>
+        {/* <img
+          src={gavinBg}
+          className="merchantBg bg-image"
+          alt="Merchant Image"
+        /> */}
+        <div className="PeterPet float-left">
+          <img
+            src={peter}
+            alt="petersMerch"
+            height="600px"
+            width="350px"
+            style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
+          />
+        </div>
 
-      <Container>
-        <h2>
-          {searchedItems.length
-            ? `Viewing ${searchedItems.length} results:`
-            : "Something went wrong"}
-        </h2>
-        <CardColumns>
-          {searchedItems.map((item) => {
-            return (
-              <Card key={item.id} border="dark">
-                {item.image ? (
-                  <Card.Img
-                    src={item.image}
-                    alt={`The cover for ${item.title}`}
-                    variant="top"
-                  />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
-                  <Card.Text>Drops: {item.drops}</Card.Text>
-                  {price !== 0 ? `Price: ${price}` : null}
-                  <Button
-                    className="btn-block btn-info"
-                    onClick={() => runePrice(1000, 10000)}
-                  >
-                    See Price
-                  </Button>
-                  {/* {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedItemIds?.some(
-                        (savedItemId) => savedItemId === item.id
-                      )}
-                      className="btn-block btn-info"
-                      onClick={() => handleSaveItem(item.id)}
-                    >
-                      {savedItemIds?.some(
-                        (savedItemId) => savedItemId === item.id
-                      )
-                        ? "This creature has already been saved!"
-                        : "Save this Creature!"}
-                    </Button>
-                  )} */}
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
-    </>
+        <Container
+          className="cardContainer"
+          style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
+        >
+          <h2 className="wood-text">
+            {searchedItems.length
+              ? `Peter's ${searchedItems.length} most prized creatures:`
+              : "Something went wrong"}
+          </h2>
+          <div className="searchCard">
+            {searchedItems.map((item) => {
+              return (
+                <Card className="resultCard" key={item.id} border="dark">
+                  {item.image ? (
+                    <Card.Img
+                      src={item.image}
+                      className="cardImg"
+                      alt={`The cover for ${item.title}`}
+                      variant="top"
+                    />
+                  ) : null}
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <p className="small">Drops: {item.drops}</p>
+
+                    <Card.Text>{item.drops}</Card.Text>
+                    {Auth.loggedIn() && (
+                      <Button
+                        disabled={savedItemIds?.some(
+                          (savedItemId) => savedItemId === item.id
+                        )}
+                        className="btn-block btn-info"
+                        onClick={() => handleSaveItem(item.id)}
+                      >
+                        {savedItemIds?.some(
+                          (savedItemId) => savedItemId === item.id
+                        )
+                          ? "This creature has been saved!"
+                          : "Save this creature!"}
+                      </Button>
+                    )}
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </div>
+        </Container>
+      </div>
+   
+</div>
   );
 };
 

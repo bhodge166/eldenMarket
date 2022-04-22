@@ -23,6 +23,8 @@ import weapon from "../assets/images/swordnshield.png";
 import runes from "../assets/images/rune.png";
 import Navbar from "../components/Navbar";
 
+import "../css/KyleMerch.css";
+
 import { LinkContainer } from "react-router-bootstrap";
 
 const KyleMerch = () => {
@@ -80,113 +82,44 @@ const KyleMerch = () => {
   // };
   apiCall();
   return (
-    <>
-      <Navbar />
-      <Jumbotron fluid className="text-light bg-dark">
-        <header>
-          <h1 className="header1">Armory</h1>
-          <div
-            className="miniAvs row"
-            style={{ marginTop: -70, marginLeft: 60 }}
-          >
-            <div className="kyleAv mx-3">
-              <LinkContainer to="/kylemerch">
-                <img
-                  src={armor}
-                  alt="kylesMerch"
-                  height="90px"
-                  width="70px"
-                  // style={{ marginTop: -10, marginLeft: 100 }}
-                />
-              </LinkContainer>
-            </div>
-            <div className="bradAv mx-3">
-              <LinkContainer to="/bradmerch">
-                <img
-                  src={weapon}
-                  alt="bradsMerch"
-                  height="90px"
-                  width="80px"
-                  // style={{ marginLeft: 40 }}
-                />
-              </LinkContainer>
-            </div>
-            <div className="jakeAv mx-3">
-              <LinkContainer to="/jakemerch">
-                <img
-                  src={items}
-                  alt="jakesMerch"
-                  height="90px"
-                  width="90px"
-                  // style={{ marginTop: -10, marginLeft: 200 }}
-                />
-              </LinkContainer>
-            </div>
-            <div className="peterAv mx-3">
-              <LinkContainer to="/petermerch">
-                <img
-                  src={pets}
-                  alt="petersMerch"
-                  height="90px"
-                  width="85px"
-                  // style={{ marginTop: -10, marginLeft: 200 }}
-                />
-              </LinkContainer>
-            </div>
-            <div className="gavinAv mx-3">
-              <LinkContainer to="/gavinmerch">
-                <img
-                  src={spells}
-                  alt="gavinsMerch"
-                  height="90px"
-                  width="70px"
-                  // style={{ marginTop: -10, marginLeft: 200 }}
-                />
-              </LinkContainer>
-            </div>
-          </div>
-          <div className="runeAv">
-            <LinkContainer to="/runefarm">
-              <img
-                src={runes}
-                alt="runes"
-                height="80px"
-                width="80px"
-                // style={{ marginTop: -10, marginLeft: 200 }}
-              />
-            </LinkContainer>
-          </div>
-        </header>
-      </Jumbotron>
 
-      <div style={{ position: "relative" }}>
-        <img
-          src={kyleBg}
+    <div style={{width: '100%'}}>
+
+      <Navbar />
+     
+       <div className="mainContentKyle" style={{ position: "relative", width: '100%', height: '1000px' }}>
+        {/* <img
+          src={gavinBg}
           className="merchantBg bg-image"
           alt="Merchant Image"
-        />
+        /> */}
         <div className="KyleKnight float-left">
           <img
             src={kyle}
-            alt="kylesMerch"
+            alt="gavinsMerch"
             height="600px"
-            width="450px"
-            style={{ position: "absolute", marginTop: 100, marginLeft: 150 }}
+            width="400px"
+            style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
           />
         </div>
-        <Container>
-          <h2>
+
+        <Container
+          className="cardContainer"
+          style={{ position: "absolute", top: 100, right: 0, width: '100%'}}
+        >
+          <h2 className="wood-text" >
             {searchedItems.length
-              ? `Viewing ${searchedItems.length} results:`
+              ? `Kyle's ${searchedItems.length} most prized pieces of armor`
               : "Something went wrong"}
           </h2>
-          <CardColumns>
+          <div className="searchCard">
             {searchedItems.map((item) => {
               return (
-                <Card key={item.id} border="dark">
+                <Card className="resultCard" key={item.id} border="dark">
                   {item.image ? (
                     <Card.Img
                       src={item.image}
+                      className="cardImg"
                       alt={`The cover for ${item.title}`}
                       variant="top"
                     />
@@ -195,7 +128,8 @@ const KyleMerch = () => {
                     <Card.Title>{item.title}</Card.Title>
                     <p className="small">Drops: {item.drops}</p>
                     <Card.Text>{item.drops}</Card.Text>
-                    {/* {Auth.loggedIn() && (
+                    {Auth.loggedIn() && (
+
                       <Button
                         disabled={savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
@@ -206,18 +140,20 @@ const KyleMerch = () => {
                         {savedItemIds?.some(
                           (savedItemId) => savedItemId === item.id
                         )
-                          ? "This armor has been saved!"
-                          : "Save this Armor!"}
+                          ? "This armor has been saved
+                          : "Save this armor!"}
                       </Button>
-                    )} */}
+                    )}
+
                   </Card.Body>
                 </Card>
               );
             })}
-          </CardColumns>
+          </div>
         </Container>
-      </div>
-    </>
+          </div>
+   
+    </div>
   );
 };
 
