@@ -50,10 +50,15 @@ export const REMOVE_RUNES = gql`
 export const ADD_TO_CART = gql`
   mutation addOrder($products: ID!) {
     addOrder(products: $products) {
-      purchaseDate
-      products {
-        _id
-        name
+      _id
+      username
+      runes
+      orders {
+        purchaseDate
+        products {
+          _id
+          name
+        }
       }
     }
   }
