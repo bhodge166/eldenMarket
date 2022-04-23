@@ -19,7 +19,7 @@ import { searchEldenRing } from "../utils/API";
 
 
 
-import "../css/GavinMerch.css";
+
 
 
 const InventoryCard = (props) => {
@@ -31,10 +31,10 @@ const InventoryCard = (props) => {
   console.log(item);
   return (
     <>
-      <div className="App App-custom bkg">
+      <div className="App App-custom ">
 
 
-        <div style={{ width: "100%" }} className="">
+        <div style={{ width: "100%" }} className="bkg">
           <div
             className=""
             style={{
@@ -66,12 +66,12 @@ const InventoryCard = (props) => {
                 </Card.Body>
               </Card>
             </div>
-            );
           </div>
         </div>
       </div>
     </>
-  );
+            );
+  
 };
 
 export default InventoryCard;
