@@ -142,7 +142,7 @@ const Home = () => {
                     </Card>
                 </div>
                 {/* ------------- */}
-            <img src={spells} className="  rotate " alt="items" />
+
             </div>
         </div >
 
