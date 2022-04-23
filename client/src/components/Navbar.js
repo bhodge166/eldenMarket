@@ -84,7 +84,7 @@ const Bar = () => {
                 <Nav.Link as={Link} to="/">
                   <img
                     src={character}
-                    className="lgnimg "
+                    className="lgnimg smallScreenImg"
                     alt="character login"
                   />
                 </Nav.Link>
@@ -92,10 +92,10 @@ const Bar = () => {
                 {Auth.loggedIn() ? (
                   <>
                     <Nav.Link as={Link} to="/inventory" className="navbar ">
-                      <p className="navglow">Inventory</p>
+                      <p className="navglow smallScreenText">Inventory</p>
                     </Nav.Link>
                     <Nav.Link onClick={Auth.logout} className="navbar ">
-                      <p className="navglow">Logout</p>
+                      <p className="navglow smallScreenText">Logout</p>
                     </Nav.Link>
                   </>
                 ) : (
