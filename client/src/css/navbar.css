@@ -82,3 +82,15 @@
 :root {
   --clr-neon: rgb(238, 158, 28);
 }
+/* keep the nav aliveeee */
+@media only screen and (max-width: 991px) {
+  #navbar {
+    display: inline;
+  }
+  .smallScreenText {
+    font-size: 1rem;
+  }
+  .smallScreenImg {
+    margin-right: 20rem;
+  }
+}

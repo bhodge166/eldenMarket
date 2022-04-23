@@ -1,0 +1,37 @@
+.resultCard {
+  width: 100% !important;
+}
+@media only screen and (max-width: 1880px) {
+  .resultCard {
+    width: 100% !important;
+    margin-bottom: 1.6rem;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .cardContainer {
+    width: 60% !important;
+  }
+  .resultCard {
+    width: 85% !important;
+  }
+  .card-columns {
+    column-count: 2 !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .resultCard {
+    width: 90% !important;
+  }
+  .cardContainer {
+    width: 60% !important;
+  }
+  .card-columns {
+    column-count: 2 !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card-columns {
+    column-count: 1 !important;
+  }
+}
