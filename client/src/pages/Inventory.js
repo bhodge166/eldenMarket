@@ -11,7 +11,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ME, QUERY_PRODUCT } from "../utils/queries";
 import InventoryCard from "../components/InventoryCard";
 import Bar from "../components/Navbar";
-
+import eldenRing from "../assets/images/eldenring_new.png";
 const Inventory = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
@@ -29,19 +29,25 @@ const Inventory = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
-        <Container>
-          <h1>Order History</h1>
-        </Container>
-      </Jumbotron>
+      <div className="App App-custom bkg">
+        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "75px" }} />
       <Bar />
-      <Container>
-        <CardColumns>
-          {productIds.map((productId) => {
-            return <InventoryCard name={productId} />;
-          })}
-        </CardColumns>
-      </Container>
+      </div>
+      
+        <Container className="">
+
+        </Container>
+     
+
+      <div className="bkg">
+        <Container>
+          <CardColumns>
+            {productIds.map((productId) => {
+              return <InventoryCard name={productId} />;
+            })}
+          </CardColumns>
+        </Container>
+      </div>
     </>
   );
 };
