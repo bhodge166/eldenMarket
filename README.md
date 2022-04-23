@@ -9,9 +9,35 @@
   <a href="https://placeholder.com"><img src="client\src\assets\images\project3readmeimage.png" alt="eldenRing" width="200"></a>
 <img src="./client/src/assets/images/talisman.png" style="margin-left: 15px;margin-bottom: 5px; width: 125px; height: 125px;>
 
-  <br>
-  Elden Brothers
-  <br>
+  <h1 align="center">Elden Brothers</h1>
+  
+  
+  <div row align="center">
+  <div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
+  <a href="https://www.github.com/gwentzel26">
+  <img src="client\src\assets\images\witch.png" alt="eldenRing" width="105" style="margin-right: 45px">
+  </a>
+  </div>
+  <div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
+  <a href="http://github.com/bhodge166">
+  <img src="client\src\assets\images\Elden-Ring-Crucible-Set.png" alt="eldenRing" width="105" style="margin-left: 15px">
+  </a>
+  </div>
+<div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
+  <a href="http://github.com/par92">
+  <img src="client\src\assets\images\ER_Class_Vagabond.png" alt="eldenRing" width="150" style="margin-left: 15px">
+  </a>
+</div>
+  <a href="http://github.com/bhodge166">
+  <img src="client\src\assets\images\ER_Class_Astrologer.png" alt="eldenRing" width="150" style="margin-left: 15px">
+  </a>
+  <div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
+  <a href="http://github.com/starbjornx">
+  <img src="client\src\assets\images\knightmerch.png" alt="eldenRing" width="200">
+  </a>
+</div>
+  </div>
+  
 </h1>
 
 <h4 align="center">Elden Ring Market</h4>
@@ -36,7 +62,7 @@
   
 </p>
 
-![Project 2 image 1](./public/images/PROJECT%202%20WIREFRAME1.png)
+![Project 2 image 1](./client/src/assets/images/project3.png)
 
 ![Project 2 image 2](./public/images/PROJECT%202%20WIREFRAME2.png)
 
@@ -113,6 +139,12 @@ This design is put together by:
 <img style= "width: 120px; border-radius:255px; position: relative; right: 25px;padding: 15px" src="https://avatars.githubusercontent.com/u/97480322?v=4">
 
 [Brad Hodge](http://github.com/bhodge166)
+
+</div>
+<div>
+<img style ="width: 120px; border-radius:255px; position: relative; right: 25px;padding: 15px" src="https://avatars.githubusercontent.com/u/97920628?v=4">
+
+[Gavin Wentzel]()
 
 </div>
 </div>
