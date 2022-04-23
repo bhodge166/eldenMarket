@@ -31,22 +31,22 @@ const Inventory = () => {
     <>
       <div className="App App-custom bkg">
         <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "75px" }} />
-      <Bar />
-      </div>
-      
-        <Container className="">
+        <Bar />
 
-        </Container>
-     
+        <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
+        </div>
 
-      <div className="bkg">
-        <Container>
-          <CardColumns>
-            {productIds.map((productId) => {
-              return <InventoryCard name={productId} />;
-            })}
-          </CardColumns>
-        </Container>
+
+
+        <div className="bkg">
+          <Container className="">
+            <CardColumns>
+              {productIds.map((productId) => {
+                return <InventoryCard name={productId} />;
+              })}
+            </CardColumns>
+          </Container>
+        </div>
       </div>
     </>
   );
