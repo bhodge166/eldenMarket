@@ -57,7 +57,6 @@ export const ADD_TO_CART = gql`
         purchaseDate
         products {
           _id
-          name
         }
       }
     }

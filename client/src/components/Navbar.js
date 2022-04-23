@@ -23,17 +23,13 @@ import Auth from "../utils/auth";
 import SignUpForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
-import {useQuery} from '@apollo/client';
+import { useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
-
-
 
 const Bar = () => {
   const [showModal, setShowModal] = useState(false);
-  const {loading, data} = useQuery(GET_ME);
-  console.log(data)
+  const { loading, data } = useQuery(GET_ME);
   const runeCount = data?.me || [];
-  console.log(runeCount);
   return (
     <div>
       <Nav className="navBG customtxt" activeKey={window.location.pathname}>
@@ -64,7 +60,12 @@ const Bar = () => {
         </LinkContainer>
         <LinkContainer to="/gavinmerch">
           <Nav.Link className=" NavItem mb-1 mx-3">
-            <img src={spells} className="icon " alt="items" style={{ marginTop: "45px" }} />
+            <img
+              src={spells}
+              className="icon "
+              alt="items"
+              style={{ marginTop: "45px" }}
+            />
             <p className="navglow mt-4 ">Spells</p>
           </Nav.Link>
         </LinkContainer>
@@ -121,23 +122,47 @@ const Bar = () => {
         className="border border-3"
       >
         {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey="login" >
-          <Modal.Header closeButton className=" border border-3 border-warning" style={{ backgroundColor: "black" }}>
+        <Tab.Container defaultActiveKey="login">
+          <Modal.Header
+            closeButton
+            className=" border border-3 border-warning"
+            style={{ backgroundColor: "black" }}
+          >
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
-                <Nav.Item >
-                  <Nav.Link eventKey="login" className="navglow starA font-weight-bold mt-3">Login</Nav.Link>
+                <Nav.Item>
+                  <Nav.Link
+                    eventKey="login"
+                    className="navglow starA font-weight-bold mt-3"
+                  >
+                    Login
+                  </Nav.Link>
                 </Nav.Item>
-                <Nav.Item >
-                  <Nav.Link eventKey="signup" className="navglow starA font-weight-bold mt-3 mx-3">Sign Up</Nav.Link>
-
+                <Nav.Item>
+                  <Nav.Link
+                    eventKey="signup"
+                    className="navglow starA font-weight-bold mt-3 mx-3"
+                  >
+                    Sign Up
+                  </Nav.Link>
                 </Nav.Item>
-                <img src={character} style={{ width: "14%", marginLeft: "210px", marginTop: "5px" }} alt="character login" />
+                <img
+                  src={character}
+                  style={{
+                    width: "14%",
+                    marginLeft: "210px",
+                    marginTop: "5px",
+                  }}
+                  alt="character login"
+                />
               </Nav>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body className="border border-3 border-warning" style={{ backgroundColor: "black" }}>
-            <Tab.Content >
+          <Modal.Body
+            className="border border-3 border-warning"
+            style={{ backgroundColor: "black" }}
+          >
+            <Tab.Content>
               <Tab.Pane eventKey="login">
                 <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
