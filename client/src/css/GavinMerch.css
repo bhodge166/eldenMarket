@@ -125,6 +125,7 @@ header {
 }
 .titleText {
   text-decoration: underline !important;
+  font-family: Garamond;
 }
 .priceText {
   font-size: 2rem !important;
@@ -132,9 +133,11 @@ header {
   border-radius: 1rem;
   padding: auto 2px !important;
   text-align: center;
+  font-family: Garamond;
 }
 .descText {
   font-size: 1rem !important;
+  font-family: Garamond;
 }
 
 @media only screen and (max-width: 1880px) {
