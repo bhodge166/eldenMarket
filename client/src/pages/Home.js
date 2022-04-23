@@ -27,7 +27,7 @@ import weapon from '../assets/images/swordnshield.png';
 import store from '../assets/images/midevilhouse.png';
 import { LinkContainer } from "react-router-bootstrap";
 import runes from '../assets/images/rune.png';
-
+import '../css/animation.css'
 
 // HOMEPAGE CREATION STARTS HERE
 const Home = () => {
@@ -142,8 +142,8 @@ const Home = () => {
                     </Card>
                 </div>
                 {/* ------------- */}
+            <img src={spells} className="  rotate " alt="items" />
             </div>
-            <footer className="star text-center"><img src={spells} className="App-logo" alt="items" />FOOTER<img src={pets} className="App-logo" alt="items" /></footer>
         </div >
 
 
