@@ -60,7 +60,7 @@ const InventoryCard = (props) => {
                 <Card.Body className="cardBody">
                   <Card.Title className="titleText">{item.name}</Card.Title>
                   <p className="small descText">{item.description}</p>
-                  <p className="small priceText">Pruchased: {item.price} Runes</p>
+                  <p className="small priceText">Purchased: {item.price} Runes</p>
 
                   <Card.Text>{item.drops}</Card.Text>
                 </Card.Body>
@@ -70,8 +70,8 @@ const InventoryCard = (props) => {
         </div>
       </div>
     </>
-            );
-  
+  );
+
 };
 
 export default InventoryCard;
