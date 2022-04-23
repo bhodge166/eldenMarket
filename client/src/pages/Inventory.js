@@ -39,7 +39,7 @@ const Inventory = () => {
 
 
         <div className="bkg">
-          <Container className="">
+          <Container>
             <CardColumns>
               {productIds.map((productId) => {
                 return <InventoryCard name={productId} />;
