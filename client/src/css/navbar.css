@@ -52,6 +52,7 @@
 }
 .center-navbar {
   text-align: center;
+  width: 100%;
 }
 
 .armorOne {
@@ -62,9 +63,6 @@
   display: inline-block;
 }
 
-.center-navbar {
-  width: 100%;
-}
 .cursor {
   cursor: pointer;
 }
