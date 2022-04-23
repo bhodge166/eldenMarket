@@ -73,22 +73,23 @@ const resolvers = {
       console.log(context);
       if (context.user) {
         const product = await Product.findById(products).populate("category");
-        const order = new Order({ product });
+        const order = new Order({ products });
         const decrement = product.price;
         const user = await User.findById(context.user._id);
         if (user.runes < product.price) {
-          console.log('mine some runes ya lazy')
-          return 
+          console.log("mine some runes ya lazy");
+          return;
         }
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          {$push: { orders: order }},
-          );
-        const test= await User.findByIdAndUpdate(
+          { $push: { orders: order } }
+        );
+        const test = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          {$inc: {runes: -decrement}},
-          {new: true});
+          { $inc: { runes: -decrement } },
+          { new: true }
+        );
 
         return test;
       }
