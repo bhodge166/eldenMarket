@@ -7,6 +7,13 @@ export const GET_ME = gql`
       username
       email
       runes
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+        }
+      }
     }
   }
 `;
@@ -52,13 +59,13 @@ export const QUERY_PRODUCTS = gql`
 `;
 
 export const QUERY_PRODUCT = gql`
-  query product($_id: ID) {
-    products(_id: $ID) {
+  query product($_id: ID!) {
+    product(_id: $_id) {
       _id
       name
       description
-      image
       price
+      image
     }
   }
 `;
