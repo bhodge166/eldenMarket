@@ -92,7 +92,8 @@ db.once("open", async () => {
       name: "Basilisk",
       image:
         "https://eldenring.fanapis.com/images/creatures/17f6a58d8d2l0i6ys2scc9vx91u6pp.png",
-      description: "???",
+      description:
+        "Basilisks are frog-eyed creatures found in underground areas. They are able to breathe out a black smoke that inflicts Death on players for each second they stay in it, making it important to mind your surroundings when fighting them.",
       category: categories[1]._id,
       price: 5000,
     },
@@ -220,9 +221,9 @@ db.once("open", async () => {
     {
       name: "Claw Talisman",
       image:
-        "https://eldenring.fanapis.com/images/weapons/17f69c6388cl0i1ohcb8denrbpuhqs.png",
-      description:
         "https://eldenring.fanapis.com/images/talismans/17f69ba1d62l0i2sq92f4o8t2tlzp7.png",
+      description:
+        "A talisman depicting a claw and an assassin. Enhances jump attacks.",
       type: "Talisman",
       category: categories[3]._id,
       price: 4000,
@@ -230,9 +231,9 @@ db.once("open", async () => {
     {
       name: "Crimson Amber Medallion",
       image:
-        "https://eldenring.fanapis.com/images/weapons/17f697d9a68l0i1oqeay5e8bb4oc3g.png",
-      description:
         "https://eldenring.fanapis.com/images/talismans/17f699e5a9dl0i2sqsk8mpabyj9mm4.png",
+      description:
+        "A medallion with Crimson amber inlaid. Boosts maximum HP. The Erdtree's old sap becomes amber, treasured as the most precious of jewels in the age of Godfrey, the first Elden Lord. A primordial life energy resides inside",
       type: "Talisman",
       category: categories[3]._id,
       price: 2000,
