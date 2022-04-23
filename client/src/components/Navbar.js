@@ -103,7 +103,10 @@ const Bar = () => {
                     className=" navbar mx-.5"
                     onClick={() => setShowModal(true)}
                   >
-                    <p className="navglow" style={{ fontSize: "24px" }}>
+                    <p
+                      className="navglow smallScreenText"
+                      // style={{ fontSize: "24px" }}
+                    >
                       Login/Sign Up
                     </p>
                   </Nav.Link>
