@@ -80,7 +80,7 @@ const Bar = () => {
             <Navbar.Brand as={Link} to="/"></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" />
             <Navbar.Collapse id="navbar">
-              <Nav className="ml-auto w-25 custom-login">
+              <Nav className=" w-25 custom-login">
                 <Nav.Link as={Link} to="/">
                   <img
                     src={character}

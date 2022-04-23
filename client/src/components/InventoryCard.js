@@ -4,9 +4,8 @@ import Auth from "../utils/auth";
 import { Card } from "react-bootstrap";
 import { QUERY_PRODUCT } from "../utils/queries";
 import Navbar from "../components/Navbar";
-import eldenRing from "../assets/images/eldenring_new.png"
+import eldenRing from "../assets/images/eldenring_new.png";
 import {
-
   Nav,
   NavItem,
   Glyphicon,
@@ -17,10 +16,7 @@ import {
 import brad from "../assets/images/ER_Class_Astrologer.png";
 import { searchEldenRing } from "../utils/API";
 
-
-
-
-
+import "../css/inventoryCard.css";
 
 const InventoryCard = (props) => {
   const { loading, data } = useQuery(QUERY_PRODUCT, {
@@ -32,21 +28,16 @@ const InventoryCard = (props) => {
   return (
     <>
       <div className="App App-custom ">
-
-
         <div style={{ width: "100%" }} className="bkg">
           <div
             className=""
             style={{
               position: "relative",
               width: "100%",
-              height: "1000px",
+              height: "100%",
               marginTop: "10px",
             }}
           >
-
-
-
             <div className="">
               <Card className="resultCard" key={item._id}>
                 {item.image ? (
@@ -60,7 +51,9 @@ const InventoryCard = (props) => {
                 <Card.Body className="cardBody">
                   <Card.Title className="titleText">{item.name}</Card.Title>
                   <p className="small descText">{item.description}</p>
-                  <p className="small priceText">Purchased: {item.price} Runes</p>
+                  <p className="small priceText">
+                    Purchased: {item.price} Runes
+                  </p>
 
                   <Card.Text>{item.drops}</Card.Text>
                 </Card.Body>
@@ -71,7 +64,6 @@ const InventoryCard = (props) => {
       </div>
     </>
   );
-
 };
 
 export default InventoryCard;
