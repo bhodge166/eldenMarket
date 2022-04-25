@@ -37,7 +37,7 @@ import weapon from '../assets/images/swordnshield.png';
 
 
 const Counter = () => {
-  const [addRunes, { error, data }] = useMutation(ADD_RUNES);
+  const [addRunes,{ error, data }] = useMutation(ADD_RUNES);
   if (error) {
     console.log(JSON.stringify(error.message));
   }
@@ -49,7 +49,10 @@ const Counter = () => {
     } catch (err) {
       console.log(JSON.stringify(err));
     }
+
   };
+
+
   // const Counter2 = () => {
   //   const [addRunes, { error, data }] = useMutation(ADD_RUNES);
   //   if (error) {
@@ -70,9 +73,9 @@ const Counter = () => {
   return (
     <div className="bkg" style={{ height: "100%" }}>
       <div className="counter">
-        <h1 className="starA" style={{ fontSize: "72px" }}>Boss Fight! </h1>
+        <h1 className="starA" style={{ fontSize: "84px", textDecorationLine: "underline" }}>Boss Fight! </h1>
         <h3 className="starB" style={{ fontSize: "48px", }}>
-          <span style={{ fontWeight: "bold", fontStyle: "italic" }}>"I Am Malenia, Blade Of Miquella, And I Have Never Known Defeat."</span> <br></br>-Malenia, Blade Of Miquella.
+          <span style={{ fontWeight: "bold", fontStyle: "italic", color: "white" }}>"I Am Malenia, Blade Of Miquella, And I Have Never Known Defeat."</span> <br></br>-Malenia, Blade Of Miquella.
         </h3>
         <div className="btn__container">
 
@@ -81,14 +84,14 @@ const Counter = () => {
         <img src={badguy} type="button" id="face" className=" w-25" onClick={(myTimer) => handleAddRunes()} />
         {/* <img type="button" src={badguy} id="face" onClick={setTimeout(myTimer, 1000), handleAddRunes()} style={{ width: "100px", height: "100px" }} /> */}
         <button className="control__btn" onClick={() => handleAddRunes()}>
-          <img src={weapon} className="icon" style={{ width: "85px" }} /> earn x5000 runes ON CD 2mins
+          <img src={weapon} className="icon" style={{ width: "85px" }} />Swing your  <span className="starA" style={{ fontSize: "24px" }}>weapon</span> earn x5000 runes ON CD 2mins
 
         </button>
         <button className="control__btn" onClick={() => handleAddRunes()}>
-          <img src={spells} className="icon" />Cast a Spell earn x15000 runes ON CD 5mins
+          <img src={spells} className="icon" />Cast a <span className="starA" style={{ fontSize: "24px" }}>Spell</span> earn x15000 runes ON CD 5mins
         </button>
         <button className="control__btn" onClick={() => handleAddRunes()}>
-          <img src={spells} className="icon" /> Send a pet & earn x25000 runes ON CD 10mins
+          <img src={spells} className="icon" /> Send a <span className="starA" style={{ fontSize: "24px" }}>pet</span> & earn x25000 runes ON CD 10mins 
 
         </button>
         <button className="control__btn" onClick={() => handleAddRunes()}>
