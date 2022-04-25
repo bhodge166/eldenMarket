@@ -41,7 +41,6 @@ const KyleMerch = () => {
   }
 
   const handlePurchaseItem = async (id) => {
-
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -61,12 +60,23 @@ const KyleMerch = () => {
   return (
     <>
       <div className="App App-custom bkg">
-        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "50px" }} />
+        <img
+          src={eldenRing}
+          className="intro"
+          alt="intro"
+          style={{ width: "900px", marginBottom: "50px" }}
+        />
         <div>
-
           <Navbar />
-          <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
-          </div>
+          <div
+            className="mb-5"
+            style={{
+              width: "80%",
+              marginLeft: "150px",
+              border: "3px solid gray",
+              borderRadius: "50px",
+            }}
+          ></div>
         </div>
 
         <div style={{ width: "100%" }}>
@@ -79,51 +89,65 @@ const KyleMerch = () => {
               marginTop: "10px",
             }}
           >
-
             <div className="KyleKnight float-left">
               <img
                 src={kyle}
                 alt="gavinsMerch"
                 height="600px"
                 width="400px"
-                style={{ position: "absolute", marginTop: 150, marginLeft: 150 }}
+                style={{
+                  position: "absolute",
+                  marginTop: 150,
+                  marginLeft: 150,
+                }}
               />
             </div>
 
             <Container
               className="cardContainer"
-              style={{ position: "absolute", top: 100, right: 0, width: "100%" }}
+              style={{
+                position: "absolute",
+                top: 100,
+                right: 0,
+                width: "100%",
+              }}
             >
               <h2 className="wood-text">
                 {filterProducts().length
-                  ? `Kyle's ${filterProducts().length} most prized pieces of armor`
+                  ? `Kyle's ${
+                      filterProducts().length
+                    } most prized pieces of armor`
                   : "Something went wrong"}
               </h2>
-              <div className="searchCard">
+              <div className="searchCard row">
                 {filterProducts().map((item) => {
                   return (
-                    <Card className="resultCard" key={item._id}>
+                    <Card className="resultCard col-sm-4" key={item._id}>
                       {item.image ? (
                         <Card.Img
                           src={item.image}
-                          className="cardImg"
+                          className="cardImg w-100"
                           alt={`The cover for ${item.name}`}
                           variant="top"
                         />
                       ) : null}
                       <Card.Body className="cardBody">
-                        <Card.Title className="titleText">{item.name}</Card.Title>
+                        <Card.Title className="titleText">
+                          {item.name}
+                        </Card.Title>
                         <p className="small descText">{item.description}</p>
                         <p className="small priceText">
                           Price: {item.price} Runes
                         </p>
 
-                        <Card.Text >{item.drops}</Card.Text>
+                        <Card.Text>{item.drops}</Card.Text>
                         {Auth.loggedIn() && (
                           <Button
                             className="btn-block btn-info"
                             onClick={() => handlePurchaseItem(item._id)}
-                          > Purchase
+                          >
+                            {" "}
+                            Purchase
                           </Button>
                         )}
                       </Card.Body>
