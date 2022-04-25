@@ -30,26 +30,45 @@ const Inventory = () => {
   return (
     <>
       <div className="App App-custom bkg">
-        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "105px" }} />
+        <img
+          src={eldenRing}
+          className="intro"
+          alt="intro"
+          style={{ width: "900px", marginBottom: "105px" }}
+        />
         <Bar />
 
-        <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
-        </div>
-
-
+        <div
+          className="mb-5"
+          style={{
+            width: "80%",
+            marginLeft: "150px",
+            border: "3px solid gray",
+            borderRadius: "50px",
+          }}
+        ></div>
 
         <div className="bkg">
           <Container>
-            <h1 className="navglow text-center font-weight-bold">Weapons Collection</h1>
+            <h1 className="navglow text-center font-weight-bold">Inventory</h1>
             <CardColumns>
               {productIds.map((productId) => {
                 return <InventoryCard name={productId} />;
               })}
             </CardColumns>
-            <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
-            </div>
-            <h1 className="navglow text-center font-weight-bold">Armor Collection</h1>
-            <CardColumns>
+            <div
+              className="mb-5"
+              style={{
+                width: "80%",
+                marginLeft: "150px",
+                border: "3px solid gray",
+                borderRadius: "50px",
+              }}
+            ></div>
+            {/* <h1 className="navglow text-center font-weight-bold">
+              Armor Collection
+            </h1> */}
+            {/* <CardColumns>
               {productIds.map((productId) => {
                 return <InventoryCard name={productId} />;
               })}
@@ -77,7 +96,7 @@ const Inventory = () => {
               {productIds.map((productId) => {
                 return <InventoryCard name={productId} />;
               })}
-            </CardColumns>
+            </CardColumns> */}
           </Container>
         </div>
       </div>
