@@ -20,7 +20,7 @@
   </div>
   <div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
   <a href="http://github.com/bhodge166">
-  <img src="client\src\assets\images\Elden-Ring-Crucible-Set.png" alt="eldenRing" width="105" style="margin-left: 15px">
+  <img align="center" src="client\src\assets\images\Elden-Ring-Crucible-Set.png" alt="eldenRing" width="105" style="margin-left: 15px">
   </a>
   </div>
 <div style="display: inline-block" style="max-width: 50%; max-height: 50%;">
