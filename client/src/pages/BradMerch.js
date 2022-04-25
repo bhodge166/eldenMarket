@@ -59,7 +59,7 @@ const BradMerch = () => {
   return (
     <>
       <div className="App App-custom bkg">
-        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "75px" }} />
+        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "105px" }} />
         <div>
           <Navbar />
           <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >

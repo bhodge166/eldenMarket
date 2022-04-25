@@ -58,7 +58,7 @@ const GavinMerch = () => {
   return (
     <>
       <div className="App App-custom bkg">
-        <img src={eldenRing} className="intro" style={{ width: "900px", marginBottom: "75px" }} alt="intro" />
+        <img src={eldenRing} className="intro" style={{ width: "900px", marginBottom: "105px" }} alt="intro" />
         <div>
           <Navbar />
           <div className="mb-5" style={{ width: "80%", marginLeft: "150px", border: "3px solid gray", borderRadius: "50px" }} >
