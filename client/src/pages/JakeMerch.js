@@ -55,16 +55,12 @@ const JakeMerch = () => {
   return (
     <>
       <div className="App App-custom bkg">
-<<<<<<< HEAD
-        <img src={eldenRing} className="intro" alt="intro" style={{ width: "900px", marginBottom: "105px" }} />
-=======
         <img
           src={eldenRing}
           className="intro"
           alt="intro"
           style={{ width: "900px", marginBottom: "75px" }}
         />
->>>>>>> main
         <div>
           <Navbar />
           <div
