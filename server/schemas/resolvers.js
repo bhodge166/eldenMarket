@@ -118,6 +118,8 @@ const resolvers = {
         return newRunes;
       }
     },
+
+
     // removeRunes: async (parent, { runes, price }, context) => {
     //   if (context.user) {
     //     const cost = runes - price;
