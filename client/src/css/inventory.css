@@ -1,0 +1,10 @@
+.mainContentInventory {
+    background-image: url("../assets/images/armorBG.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -100px;
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+  }
